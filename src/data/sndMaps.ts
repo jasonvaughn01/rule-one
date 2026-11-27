@@ -75,6 +75,8 @@ export interface SndMapConfig {
   poolNote: string;
   setting: string;
   brief: string;
+  tacMapImageUrl: string;
+  officialGuideUrl: string;
   offenseSpawn: { x: number; y: number; label: string };
   defenseSpawn: { x: number; y: number; label: string };
   sites: BombSite[];
@@ -91,6 +93,10 @@ export const MW4_SND_MAPS: SndMapConfig[] = [
     setting: 'Multi-Tiered Mining & Industrial Complex',
     brief:
       'Heavy verticality built around The Hill (B-Flag Mid), flanking Coal Warehouses, and elevated Catwalks. Whoever locks Catwalk height dictates A-Site plants.',
+    tacMapImageUrl:
+      'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/guides/games/mw4/tac-map/coal/MW4_MP_Coal_BASE.webp',
+    officialGuideUrl:
+      'https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/coal',
     offenseSpawn: { x: 110, y: 530, label: 'Offense Spawn (South Yard)' },
     defenseSpawn: { x: 880, y: 100, label: 'Defense Spawn (North Quarry)' },
     sites: [
@@ -171,6 +177,10 @@ export const MW4_SND_MAPS: SndMapConfig[] = [
     setting: 'Structured Courtyard & Main Hall Complex',
     brief:
       'Universal CDL centerpiece built around the Central Courtyard Plaza, Main Hall interior, and narrow Back Alley flanks. Smoke discipline decides mid crosses.',
+    tacMapImageUrl:
+      'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/guides/games/mw4/tac-map/lotus/Lotus_Tac_Map.webp',
+    officialGuideUrl:
+      'https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/lotus',
     offenseSpawn: { x: 110, y: 315, label: 'Offense Spawn (West Terrace)' },
     defenseSpawn: { x: 880, y: 315, label: 'Defense Spawn (East Garden)' },
     sites: [
@@ -248,6 +258,10 @@ export const MW4_SND_MAPS: SndMapConfig[] = [
     setting: 'Military Storage Depot & Loading Docks',
     brief:
       'Tight warehouse lanes centered on Main Depot interior, Mid Connector, and exterior Loading Docks. ISO Nightshade and VEL-46 dictate Depot gunfights.',
+    tacMapImageUrl:
+      'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/guides/games/mw4/tac-map/munition/Munition_Tac_Map.webp',
+    officialGuideUrl:
+      'https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/munition',
     offenseSpawn: { x: 115, y: 520, label: 'Offense Spawn (South Apron)' },
     defenseSpawn: { x: 875, y: 105, label: 'Defense Spawn (North Gate)' },
     sites: [
@@ -326,6 +340,10 @@ export const MW4_SND_MAPS: SndMapConfig[] = [
     setting: 'Nuclear Hazard Core & Upper Control Catwalks',
     brief:
       'Industrial nuclear facility centered on the multi-level Reactor Core, Upper Control Catwalks, and flanking Outer Labs corridors.',
+    tacMapImageUrl:
+      'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/guides/games/mw4/tac-map/reactor-u92/Reactor_U92_Tac_Map.webp',
+    officialGuideUrl:
+      'https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/reactor-u92',
     offenseSpawn: { x: 115, y: 310, label: 'Offense Spawn (West Cooling)' },
     defenseSpawn: { x: 880, y: 310, label: 'Defense Spawn (East Containment)' },
     sites: [
@@ -402,6 +420,10 @@ export const MW4_SND_MAPS: SndMapConfig[] = [
     setting: 'High-Rise Urban Skyline & Generator Deck',
     brief:
       'Notorious headglitch and long-angle battleground anchored by The Bar, Generator / Electrical Boxes, and exposed high-rise Sniper Lanes.',
+    tacMapImageUrl:
+      'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/guides/games/mw4/tac-map/rooftops/MW4_Rooftops_Tac_Map_BASE.webp',
+    officialGuideUrl:
+      'https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/rooftops',
     offenseSpawn: { x: 115, y: 520, label: 'Offense Spawn (Helipad Deck)' },
     defenseSpawn: { x: 875, y: 105, label: 'Defense Spawn (Penthouse Terrace)' },
     sites: [
@@ -478,6 +500,10 @@ export const MW4_SND_MAPS: SndMapConfig[] = [
     setting: 'South Korean Commercial District & Subway',
     brief:
       'Dense urban S&D masterpiece featuring Convenience Store / Market, Gaming Den, Central Subway Entrance, and wrapping Perimeter Apartments.',
+    tacMapImageUrl:
+      'https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/guides/games/mw4/tac-map/silkworm/Silkworm_Tac_Map.webp',
+    officialGuideUrl:
+      'https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/silkworm',
     offenseSpawn: { x: 115, y: 525, label: 'Offense Spawn (South Street)' },
     defenseSpawn: { x: 875, y: 105, label: 'Defense Spawn (North Plaza)' },
     sites: [

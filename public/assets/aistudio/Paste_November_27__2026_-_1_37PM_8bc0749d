@@ -1,0 +1,1239 @@
+# RULE ONE™ — MASTER DEVELOPMENT AND IMPLEMENTATION DIRECTIVE
+
+## 1. Project objective
+
+Continue developing the existing Rule One / Elite Gamer Pro application.
+
+Transform Rule One into a premium, multi-game competitive gaming intelligence platform for skilled gamers, professional esports players, competitive clans, coaches, team managers, content creators and esports organizations.
+
+Rule One must generate organic traffic, retain users, create sustainable revenue opportunities and minimize ongoing administrative work.
+
+Brand positioning:
+
+**RULE ONE — Your Team. Your Strategy. Your Competitive Edge.**
+
+Rule One must become a destination players visit before and after competitive matches.
+
+Do not create a separate application. Inspect and improve the existing project.
+
+## 2. Permanent five business rules
+
+Apply these rules to every development and business decision.
+
+**Rule 1 — Maximum leverage**
+
+Build reusable systems that serve thousands of users without requiring proportional increases in administrative work. Eliminate unnecessary features, expenses and repetitive manual operations.
+
+**Rule 2 — Follow existing money**
+
+Identify opportunities within established gaming spending categories, including competitive subscriptions, gaming equipment, esports sponsorships, advertising, tournament management and team development.
+
+Prioritize demonstrated customer demand rather than speculative features.
+
+**Rule 3 — Premium positioning**
+
+Create a trustworthy, professionally designed platform. Use accurate information, high-quality imagery, transparent pricing and exceptional usability.
+
+Never fabricate statistics, partnerships, endorsements or competitive achievements.
+
+**Rule 4 — Asymmetric advantages**
+
+Build five compounding advantages:
+
+- Searchable competitive gaming intelligence.
+- Historical weapon and balance-patch databases.
+- Clan-generated recruitment and referral traffic.
+- Private team strategy libraries.
+- Authorized multi-game data integrations.
+
+**Rule 5 — Protect the owner's time**
+
+Automate repetitive operations. Target at least a 50% reduction in administrative workload against a measured baseline.
+
+Build monitoring, alerts, content review queues, billing automation and self-service account management.
+
+## 3. Master visual design
+
+Preserve Rule One's premium black and gold identity.
+
+Design standards:
+
+- Main background: #0B0D12.
+- Secondary background: #14161D.
+- Cards and panels: #1C1F27.
+- Primary gold accent: #D6B477.
+- Primary text: #F5F5F5.
+- Secondary text: #A7AFBD.
+- Green for confirmed successful statuses.
+- Amber for warnings and predictions.
+- Red for errors and restrictions.
+
+Use professionally composed gaming imagery, consistent icons, readable typography, subtle animations and spacious layouts.
+
+Avoid excessive neon effects, distracting animations, overcrowded windows and unnecessary pop-ups.
+
+Create a consistent design system across the entire website and mobile application.
+
+## 4. Complete navigation architecture
+
+Desktop navigation must include:
+
+- Home.
+- Games.
+- Meta Lab.
+- Tactical Maps.
+- Strategy Library.
+- Ranked Center.
+- Clan HQ.
+- Recruitment.
+- Tournaments.
+- Player Statistics.
+- Gaming News.
+- Equipment.
+- Saved Content.
+- Notifications.
+- Settings.
+
+Provide a collapsible desktop sidebar and persistent universal search.
+
+Mobile navigation should prioritize Home, Games, Meta, Clans and Profile, with additional features available through an organized menu.
+
+Target a maximum of three clicks or taps to reach major features.
+
+Provide breadcrumbs, back navigation, favorites and recently viewed content.
+
+## 5. Homepage and traffic landing page
+
+Create a professional public homepage containing:
+
+- Cinematic gaming hero imagery.
+- Rule One branding and slogan.
+- Universal gaming search.
+- Popular game cards.
+- Current competitive meta.
+- Recently updated weapon builds.
+- Featured tactical maps.
+- Latest verified patch updates.
+- Upcoming verified esports events.
+- Clan recruitment opportunities.
+- Featured competitive strategies.
+- Gaming equipment recommendations.
+- Clear registration and membership options.
+
+Allow visitors to browse useful public content without registering.
+
+Do not force subscriptions or advertisements before visitors can access basic gaming information.
+
+Signed-in users receive a personalized dashboard based on favorite games, platforms, competitive modes and saved content.
+
+## 6. Complete game directory
+
+Build a reusable multi-game architecture.
+
+The following 64 titles are candidate expansion markets, not a verified popularity ranking. Verify current popularity, game availability, competitive activity and commercial opportunities before prioritizing each title.
+
+### Competitive shooters and battle royale
+
+1. Call of Duty: Modern Warfare 4.
+2. Call of Duty: Warzone.
+3. Call of Duty: Black Ops 7.
+4. Call of Duty: Mobile.
+5. Counter-Strike 2.
+6. Valorant.
+7. Fortnite.
+8. Apex Legends.
+9. Rainbow Six Siege.
+10. PUBG: Battlegrounds.
+11. PUBG Mobile.
+12. Battlefield 6.
+13. Overwatch.
+14. Marvel Rivals.
+15. Halo Infinite.
+16. Destiny 2.
+17. THE FINALS.
+18. Delta Force.
+19. Escape from Tarkov.
+20. Arena Breakout: Infinite.
+21. Hunt: Showdown 1896.
+22. Splitgate 2.
+23. Warframe.
+24. Team Fortress 2.
+25. CrossFire.
+26. Free Fire.
+27. Standoff 2.
+28. Combat Master.
+
+### MOBA and strategy
+
+29. League of Legends.
+30. Dota 2.
+31. Mobile Legends: Bang Bang.
+32. Honor of Kings.
+33. League of Legends: Wild Rift.
+34. Pokémon Unite.
+35. SMITE 2.
+36. Teamfight Tactics.
+37. StarCraft II.
+38. Age of Empires IV.
+39. Clash Royale.
+40. Clash of Clans.
+41. Brawl Stars.
+42. Hearthstone.
+43. Magic: The Gathering Arena.
+
+### Fighting games
+
+44. Tekken 8.
+45. Street Fighter 6.
+46. Mortal Kombat 1.
+47. Super Smash Bros. Ultimate.
+48. Guilty Gear Strive.
+49. Brawlhalla.
+50. Dragon Ball FighterZ.
+51. Fatal Fury: City of the Wolves.
+
+### Sports and racing
+
+52. Rocket League.
+53. EA Sports FC.
+54. NBA 2K.
+55. Madden NFL.
+56. NHL.
+57. eFootball.
+58. Gran Turismo 7.
+59. iRacing.
+60. Assetto Corsa Competizione.
+61. F1 racing series.
+62. Trackmania.
+
+### Competitive community gaming
+
+63. Minecraft.
+64. Roblox.
+
+Verify exact current product names and editions.
+
+Do not create dozens of empty public game pages merely to increase page count.
+
+Prioritize Call of Duty, Counter-Strike 2, Valorant, Fortnite, Warzone, Apex Legends, Rainbow Six Siege, League of Legends, Dota 2 and Rocket League initially, subject to demand validation.
+
+## 7. Mandatory imagery system
+
+Every supported game requires an asset manifest containing:
+
+- Official game name.
+- Publisher.
+- Developer.
+- Cover image.
+- Landscape hero image.
+- Thumbnail.
+- Game icon.
+- Competitive map imagery where applicable.
+- Weapon imagery where applicable.
+- Character, agent or operator imagery where applicable.
+- Source URL.
+- Copyright owner.
+- Commercial usage authorization status.
+- Verification date.
+- Alternative text.
+
+Image sizes:
+
+- Hero: 1920 × 1080.
+- Game cards: 600 × 800.
+- Landscape cards: 1280 × 720.
+- Icons: 256 × 256.
+- Social sharing cards: 1200 × 630.
+- Tactical maps: preferably 2048 pixels or greater where authorized source quality permits.
+
+Preserve existing Rule One imagery.
+
+Use authorized official publisher assets when available. Do not assume that publicly accessible images are licensed for commercial reuse.
+
+Where permission is unavailable, use original generic gaming illustrations clearly distinguished from official artwork.
+
+Do not generate fictional maps, weapons or game screenshots and label them official.
+
+Optimize images using WebP or AVIF where appropriate.
+
+Provide responsive sizes, lazy loading and reliable fallback images.
+
+Never display broken image placeholders.
+
+## 8. Individual game intelligence windows
+
+Every supported game must have a consistent dedicated hub containing relevant sections:
+
+- Overview.
+- Current meta.
+- Builds or character recommendations.
+- Maps.
+- Strategies.
+- Ranked information.
+- Patch history.
+- Player statistics.
+- Clan recruitment.
+- Esports events.
+- Equipment recommendations.
+- Saved content.
+
+Adapt terminology and functionality to each game.
+
+Do not display firearm loadout tools for games that do not use them.
+
+## 9. Call of Duty CDL tactical map library
+
+Prioritize the latest verified competitive Call of Duty title and CDL season.
+
+The previously researched candidate Modern Warfare 4 map pool contains the following eight maps. Revalidate every map and mode assignment against current official CDL rules before publication.
+
+### Coal
+
+Candidate mode: Search & Destroy.
+
+Reference:
+https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/coal
+
+### Lithium
+
+Candidate modes: Hardpoint and Hijack.
+
+Reference:
+https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/lithium
+
+### Lotus
+
+Candidate modes: Hardpoint, Search & Destroy and Hijack.
+
+Reference:
+https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/lotus
+
+### Munition
+
+Candidate modes: Hardpoint, Search & Destroy and Hijack.
+
+Reference:
+https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/munition
+
+### Reactor U92
+
+Candidate modes: Hardpoint and Search & Destroy.
+
+Reference:
+https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/reactor-u92
+
+### Rooftops
+
+Candidate modes: Hardpoint and Search & Destroy.
+
+Reference:
+https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/rooftops
+
+### Sentry
+
+Candidate mode: Hardpoint.
+
+Reference:
+https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/sentry
+
+### Silkworm
+
+Candidate mode: Search & Destroy.
+
+Reference:
+https://www.callofduty.com/guides/modernwarfare4/multiplayer-maps/launch/silkworm
+
+### Supporting sources
+
+Official CDL competitive settings:
+https://www.callofdutyleague.com/en-us/competitive-settings
+
+Official Call of Duty information:
+https://www.callofduty.com/blog
+
+Breaking Point:
+https://breakingpoint.gg/
+
+Previously identified Hardpoint reference:
+https://lab.breakingpoint.gg/posts/modern-warfare-4-hardpoint-rotations
+
+Previously identified map directory:
+https://mobaaura.com/mw4/maps
+
+These are candidate reference URLs. Verify that each resolves to the correct current content. Do not treat the existence of a URL in these instructions as proof that its content or licensing has been verified.
+
+## 10. Complete tactical map imagery requirements
+
+Obtain accurate overhead imagery for every verified CDL competitive map.
+
+For each map, support:
+
+- Clean overhead base map.
+- Separate floors where applicable.
+- Verified callouts.
+- Objective locations.
+- Hardpoint rotations.
+- Search & Destroy bombsites.
+- Other verified competitive objectives.
+- Relevant spawn references.
+- Major routes.
+- Chokepoints.
+- Relevant sightlines.
+- Cover positions.
+- Map orientation.
+- Applicable patch version.
+
+Maintain independent overlay layers so users can enable or disable information without altering the original map.
+
+Store normalized coordinates so overlays remain correctly positioned when the map is resized.
+
+Do not invent map geometry or objective locations.
+
+If commercial image rights are unavailable, link to the official map and support authorized private uploads.
+
+## 11. Professional clan strategy editor
+
+Build a full-screen interactive tactical planning workspace.
+
+Desktop layout:
+
+- Left panel: drawing tools and player roster.
+- Center: high-resolution interactive tactical map.
+- Right panel: strategy instructions and player assignments.
+- Bottom panel: strategy timeline and playbook controls.
+
+Provide collapsible panels to maximize map visibility.
+
+Implement:
+
+- Drag-and-drop player markers.
+- Four-player CDL team presets.
+- Configurable team sizes for other games.
+- Individual player names and colors.
+- Main AR, flex, SMG and custom role labels.
+- Movement arrows.
+- Curved routes.
+- Freehand drawing.
+- Text annotations.
+- Objective markers.
+- Opponent-position hypotheses.
+- Coverage areas.
+- Defensive zones.
+- Utility markers.
+- Strategy steps.
+- Opening plans.
+- Alternative plans.
+- Rotation planning.
+- Zoom and pan.
+- Full-screen mode.
+- Undo and redo.
+- Clear selected items.
+- Reset map.
+- Autosave.
+- Duplicate strategy.
+- Version history.
+- Coach annotations.
+- Team comments.
+- Strategy approval.
+- Private sharing.
+- Authorized image exports.
+
+All opponent markers represent manually entered planning assumptions, not live enemy locations.
+
+The editor must work independently of the running game client.
+
+## 12. Clan playbook system
+
+Allow clans to organize strategies by game, map, competitive mode and season.
+
+Each playbook should contain:
+
+- Strategy name.
+- Map.
+- Game mode.
+- Team roster.
+- Player roles.
+- Opening positions.
+- Movement routes.
+- Objectives.
+- Alternative plans.
+- Communication instructions.
+- Practice notes.
+- Scrimmage results.
+- Coach feedback.
+- Version history.
+
+Provide customizable strategy templates for:
+
+- Hardpoint opening setups.
+- Hardpoint rotations.
+- Objective retakes.
+- Search & Destroy offensive plans.
+- Search & Destroy defensive plans.
+- Mid-round adjustments.
+- Competitive objective modes.
+- Map veto preparation.
+
+Treat these templates as training recommendations, not guaranteed winning strategies.
+
+## 13. Meta Lab and weapon database
+
+Create a patch-aware weapon and attachment database.
+
+Each weapon record must include:
+
+- Game.
+- Weapon name.
+- Weapon class.
+- Verified image.
+- Available attachments.
+- Attachment compatibility.
+- Damage information where verified.
+- Effective range.
+- Handling information.
+- Recoil information.
+- Applicable patch.
+- Competitive restrictions.
+- Source.
+- Verification date.
+
+Each recommended build must include:
+
+- Exact verified attachment names.
+- Attachment slots.
+- Competitive role.
+- Recommended game modes.
+- Strengths and weaknesses.
+- Build rationale.
+- Ranked legality.
+- Patch version.
+- Save, compare and share controls.
+
+Never invent attachment names, statistics or Ranked restrictions.
+
+Previously discussed MW4 candidates include M4, VEL 46, Hyeon Burst, Cronen Osprey and ISO Nightshade. Verify their actual existence, current performance and competitive legality before publishing recommendations.
+
+The proposed M4 and VEL 46 pairing is a prediction requiring testing, not a confirmed Ranked meta.
+
+Support different evidence classifications:
+
+- Officially verified.
+- Community-reported.
+- Rule One tested.
+- Predicted.
+- Experimental.
+- Outdated.
+- Restricted.
+- Unavailable.
+
+## 14. Meta prediction engine
+
+Build an explainable prediction system using available verified information.
+
+Consider:
+
+- Balance-patch changes.
+- Weapon handling.
+- Recoil consistency.
+- Effective range.
+- Mobility.
+- Competitive restrictions.
+- Map characteristics.
+- Player roles.
+- Authorized usage statistics.
+- Documented testing.
+
+Allow users to understand why a build is recommended.
+
+Never present predicted rankings as official game data.
+
+Do not display invented confidence percentages or win rates.
+
+Maintain historical builds so users can compare changes between patches.
+
+## 15. Ranked Center
+
+Create a dedicated competitive Ranked Play window containing:
+
+- Official season information.
+- Verified rank tiers.
+- Ranked rules.
+- Competitive map pool.
+- Restricted weapons and attachments.
+- Team-size requirements.
+- Skill-rating information where authorized.
+- Season countdowns only when dates are confirmed.
+- Ranked preparation guides.
+- Personal improvement goals.
+- Match history where authorized.
+- Manual match logging.
+- Performance trends.
+
+If a Ranked system has not been released, clearly identify the page as Ranked preparation.
+
+Do not fabricate release dates or live rankings.
+
+## 16. Activision integration research
+
+Investigate official, authorized access to Activision gameplay data.
+
+Reference sources:
+
+https://developer.activision.com/
+
+https://support.activision.com/articles/managing-your-activision-profile
+
+https://www.activision.com/legal/terms-of-use
+
+https://support.activision.com/articles/ricochet-overview
+
+https://support.activision.com/
+
+Verify whether each developer resource exists and is applicable.
+
+Investigate access to:
+
+- Player identity.
+- Match history.
+- Ranked statistics.
+- Competitive performance.
+- Weapon usage.
+- Loadout information.
+- Official esports statistics.
+- Authorized live match telemetry.
+
+Do not claim Activision provides a publicly available plugin until verified.
+
+Create an integration adapter that remains disabled until authorization, credentials, data permissions and applicable commercial terms are confirmed.
+
+Do not request users' Activision passwords.
+
+Do not implement game injection, memory reading, unauthorized packet interception, anti-cheat bypasses, automated aiming or hidden player tracking.
+
+Rule One must be a legitimate competitive companion platform.
+
+## 17. Additional gaming data pipelines
+
+Investigate and implement authorized integrations where appropriate.
+
+Candidate sources:
+
+- Riot Games: https://developer.riotgames.com/
+- GRID: https://grid.gg/
+- Steam: https://steamcommunity.com/dev
+- FACEIT: https://developers.faceit.com/
+- Twitch: https://dev.twitch.tv/
+- YouTube: https://developers.google.com/youtube
+- Discord: https://discord.com/developers/docs
+- start.gg: https://developer.start.gg/
+- Epic Games: https://dev.epicgames.com/
+- Google Search Console: https://developers.google.com/webmaster-tools
+
+For every integration, document:
+
+- Available data.
+- Authorization requirements.
+- Commercial permissions.
+- Rate limits.
+- Data retention restrictions.
+- Caching permissions.
+- Costs.
+- Current connection status.
+- Last successful update.
+- Error and retry behavior.
+
+No paid integration may be activated without owner approval.
+
+## 18. Clan headquarters
+
+Create a professional clan management system containing:
+
+- Clan logo and banner.
+- Public clan profile.
+- Private clan workspace.
+- Member roster.
+- Team divisions.
+- Supported games.
+- Player roles.
+- Competitive achievements.
+- Recruitment requirements.
+- Scrimmage scheduling.
+- Training schedules.
+- Tactical playbooks.
+- Team performance.
+- Member invitations.
+- Clan announcements.
+- Coach tools.
+- Member permissions.
+- Activity history.
+
+Support owner, administrator, coach, captain, player and viewer permissions.
+
+Enforce permissions on the server, not merely through hidden buttons.
+
+## 19. Professional player profiles
+
+Allow players to create shareable competitive portfolios.
+
+Include:
+
+- Gaming alias.
+- Avatar.
+- Supported games.
+- Preferred roles.
+- Platform.
+- Competitive experience.
+- Verified achievements where available.
+- User-reported achievements clearly labeled.
+- Team history.
+- Highlight videos.
+- Recruitment availability.
+- Favorite competitive modes.
+- Authorized statistics.
+
+Do not expose private contact details or sensitive account information.
+
+Allow users to control profile visibility.
+
+## 20. Recruitment marketplace
+
+Allow clans to publish recruitment listings and players to discover opportunities.
+
+Support filters for:
+
+- Game.
+- Region.
+- Platform.
+- Competitive experience.
+- Role.
+- Availability.
+- Language.
+- Team objectives.
+
+Provide applications, invitations, status tracking, blocking and reporting.
+
+Allow public recruitment pages to generate organic traffic while protecting private applications.
+
+## 21. Tournament and esports center
+
+Create verified event listings containing:
+
+- Game.
+- Tournament.
+- Organizer.
+- Date and time.
+- Region.
+- Teams.
+- Format.
+- Official rules.
+- Registration links.
+- Broadcast links.
+- Results where authorized.
+
+Provide timezone-aware schedules and personalized reminders.
+
+Do not invent tournaments, prizes, participants or results.
+
+Do not implement real-money wagering, match stakes or simulated financial balances presented as actual funds.
+
+## 22. Traffic-generation pipelines
+
+Implement twelve acquisition and retention systems.
+
+1. Search-engine-optimized game pages.
+2. Searchable weapon-build guides.
+3. Individual tactical map pages.
+4. Ranked preparation content.
+5. Patch-update intelligence.
+6. Shareable clan headquarters.
+7. Shareable player profiles.
+8. Public recruitment listings.
+9. Tournament discovery pages.
+10. Moderated creator contributions.
+11. Branded social sharing cards.
+12. Personalized game and meta alerts.
+
+Every public page must offer useful original content.
+
+Do not mass-produce thin pages, copied articles or fabricated gaming information.
+
+Use public content to attract visitors and private collaboration tools to create subscription value.
+
+## 23. Search engine optimization
+
+Implement:
+
+- Search-engine-accessible public pages.
+- Server-rendered or appropriately prerendered public content.
+- Descriptive URLs.
+- Unique page titles.
+- Accurate meta descriptions.
+- Canonical URLs.
+- XML sitemaps.
+- Robots configuration.
+- Appropriate structured data.
+- Open Graph sharing imagery.
+- Internal linking.
+- Image alternative text.
+- Redirect management.
+- Broken-link monitoring.
+- Search Console integration.
+
+Example page architecture:
+
+/games
+
+/games/call-of-duty
+
+/games/call-of-duty/meta
+
+/games/call-of-duty/maps
+
+/games/call-of-duty/maps/lotus
+
+/games/call-of-duty/ranked
+
+/clans
+
+/recruitment
+
+/tournaments
+
+Use noindex and appropriate authorization for private, incomplete or unverified pages.
+
+Never expose private clan playbooks through search engines.
+
+## 24. Revenue generation
+
+Develop multiple revenue opportunities.
+
+### Free membership
+
+- Public gaming guides.
+- Basic map information.
+- Current meta overview.
+- Basic player profiles.
+- Basic clan profiles.
+- Limited saved content.
+
+### Player Elite
+
+Proposed price: $4.99 per month.
+
+- Advanced build comparisons.
+- Expanded saved content.
+- Advanced strategy guides.
+- Personalized meta alerts.
+- Historical intelligence.
+- Personal performance tools.
+
+### Clan Pro
+
+Proposed price: $14.99 per month.
+
+- Private tactical playbooks.
+- Advanced strategy editor.
+- Team collaboration.
+- Roster management.
+- Scrimmage analysis.
+- Coach tools.
+- Advanced recruitment.
+- Team reporting.
+
+### Esports Organization
+
+Proposed price: $29.99 per month.
+
+- Multiple team divisions.
+- Organization administration.
+- Expanded collaboration.
+- Organization branding.
+- Advanced reporting.
+
+All prices are proposed and require owner approval and market validation.
+
+Additional revenue opportunities:
+
+- Contextual advertising.
+- Gaming equipment affiliate commissions.
+- Clearly disclosed sponsored content.
+- Gaming hardware partnerships.
+- Tournament management services.
+- Licensed analytics where permitted.
+
+Do not activate payments or advertising accounts without approval.
+
+## 25. Gaming equipment and affiliate center
+
+Create useful equipment guides for:
+
+- Gaming monitors.
+- Controllers.
+- Keyboards.
+- Mice.
+- Headsets.
+- Gaming PCs.
+- Capture cards.
+- Streaming equipment.
+- Gaming chairs.
+- Networking equipment.
+
+Provide accurate product information, meaningful comparisons and transparent affiliate disclosures.
+
+Do not fabricate reviews, discounts, performance results or professional endorsements.
+
+Allow equipment recommendations to be filtered by game, platform and budget.
+
+## 26. Advertising standards
+
+Advertising must not damage the user experience.
+
+Prohibit:
+
+- Forced advertisements before basic guides.
+- Automatic audio advertisements.
+- Misleading buttons.
+- Excessive pop-ups.
+- Ads covering tactical maps.
+- Hidden sponsored recommendations.
+- Fake countdowns.
+- Manipulative subscription offers.
+
+Use clearly identified advertising placements.
+
+Evaluate revenue against page speed, retention and user satisfaction.
+
+## 27. Automated intelligence engine
+
+Create a source-monitoring and verification pipeline.
+
+Workflow:
+
+1. Detect permitted publisher updates.
+2. Collect authorized information.
+3. Normalize data.
+4. Compare against existing records.
+5. Identify affected maps, builds and guides.
+6. Assign verification status.
+7. Queue uncertain changes for review.
+8. Publish approved updates.
+9. Update relevant search pages.
+10. Notify affected users.
+11. Preserve historical versions.
+12. Record source and processing history.
+
+Every record requires a source, timestamp, applicable game version and verification status.
+
+Mark stale information clearly.
+
+If sources conflict, do not automatically publish uncertain conclusions.
+
+Respect API terms, access restrictions and rate limits.
+
+## 28. Owner administration dashboard
+
+Create a centralized administration center.
+
+Include:
+
+- Registered users.
+- Active users.
+- Returning visitors.
+- Organic search traffic.
+- Registration conversions.
+- Paid membership conversions.
+- Subscription revenue.
+- Advertising revenue.
+- Affiliate revenue.
+- Operating expenses.
+- Clan growth.
+- Popular games.
+- Popular builds.
+- Popular maps.
+- Content review queue.
+- Broken image reports.
+- API connection health.
+- Security alerts.
+- Moderation reports.
+- Support requests.
+- Automation failures.
+
+Show actual measured data only.
+
+Clearly identify empty states, unavailable metrics and hypothetical financial scenarios.
+
+Never populate production dashboards with fake revenue or user counts.
+
+## 29. Mandatory user-friendliness
+
+User-friendliness is a critical business requirement.
+
+The platform must feel powerful without feeling complicated.
+
+Provide:
+
+- Three-click access to major features.
+- Universal search with autocomplete.
+- Favorite games.
+- Recently viewed content.
+- Personalized recommendations.
+- Consistent navigation.
+- Clear back buttons.
+- Understandable terminology.
+- Optional tutorials.
+- Simple account registration.
+- Self-service subscription cancellation.
+- Helpful empty states.
+- Clear error messages.
+- Reliable saving.
+- Mobile-friendly controls.
+
+Provide Standard and Professional interface modes using the same underlying data.
+
+Standard Mode simplifies information.
+
+Professional Mode exposes advanced analysis and tactical tools.
+
+Do not require users to complete unnecessary onboarding before accessing public content.
+
+## 30. Mobile and accessibility
+
+Support desktop, laptop, tablet, Android and iPhone browsers.
+
+Implement responsive layouts rather than shrinking desktop windows.
+
+Support touch-friendly tactical editing, zooming and panning.
+
+Target WCAG 2.2 AA accessibility.
+
+Include keyboard navigation, screen-reader support, visible focus indicators, reduced-motion preferences and sufficient contrast.
+
+Do not communicate critical information using color alone.
+
+## 31. Performance requirements
+
+Target the following Core Web Vitals at the 75th percentile:
+
+- Largest Contentful Paint: 2.5 seconds or less.
+- Interaction to Next Paint: 200 milliseconds or less.
+- Cumulative Layout Shift: 0.1 or less.
+
+Optimize image delivery, code splitting, caching and database queries.
+
+Load advanced tactical tools only when needed.
+
+Do not claim these targets are achieved until measured.
+
+## 32. Security and privacy
+
+Preserve existing authentication and Firestore security protections.
+
+Audit existing Firebase configuration.
+
+Implement:
+
+- Server-enforced authorization.
+- Clan-level data isolation.
+- Secure invitations.
+- Role-based access.
+- Rate limiting.
+- Input validation.
+- Secure file uploads.
+- Private strategy protection.
+- Secure API credential storage.
+- Administrative audit logs.
+- Abuse reporting.
+- Blocking.
+- Account deletion.
+- Privacy controls.
+- Backup and recovery procedures.
+
+Never expose API secrets in frontend code.
+
+Protect users' private gaming identities and account information.
+
+Evaluate applicable privacy and age-related requirements before public launch.
+
+## 33. Cost-control requirements
+
+Do not purchase artwork, activate paid APIs, upgrade billing plans, register paid services or deploy without explicit owner authorization.
+
+Use existing infrastructure where practical.
+
+Document free-tier limitations.
+
+Prevent uncontrolled API usage and expensive automated refresh loops.
+
+Add configurable usage limits, caching and administrative controls.
+
+Never claim the application has zero operating costs unless verified.
+
+## 34. Required implementation order
+
+### Phase 1 — Existing application audit
+
+Inspect all current source code, components, Firebase configuration, security rules, existing images and tests.
+
+Identify working features, simulated features, security issues and incomplete functionality.
+
+Preserve working functionality.
+
+Remove inappropriate simulated financial mechanics from the professional gaming experience.
+
+Create a development baseline.
+
+### Phase 2 — User interface foundation
+
+Implement the master navigation, responsive layouts, universal search, game directory, visual design system and personalized dashboard.
+
+Ensure every major navigation route works.
+
+### Phase 3 — Call of Duty competitive intelligence
+
+Verify the current CDL map pool.
+
+Acquire authorized overhead map imagery.
+
+Implement map pages, verified objective overlays, weapon databases, meta builds and Ranked preparation.
+
+Do not publish incomplete information as verified.
+
+### Phase 4 — Clan strategy workspace
+
+Implement the complete tactical map editor, private playbooks, player assignments, saving, sharing, version history and permissions.
+
+Test desktop and mobile interactions.
+
+### Phase 5 — Traffic generation
+
+Implement public search pages, sitemaps, metadata, social sharing cards, recruitment listings and useful original gaming guides.
+
+Measure search visibility and user behavior.
+
+### Phase 6 — Clan and player systems
+
+Implement professional profiles, clan management, recruitment, invitations, scheduling and team reporting.
+
+### Phase 7 — Revenue infrastructure
+
+Implement proposed membership entitlements, subscription interfaces, advertising placement controls and affiliate disclosure systems.
+
+Keep live billing and advertising disabled until approved.
+
+### Phase 8 — Automated data pipelines
+
+Implement source monitoring, verification queues, patch comparisons, alerts and authorized API adapters.
+
+Keep unauthorized integrations disabled.
+
+### Phase 9 — Multi-game expansion
+
+Expand into additional games according to verified demand, available data, content quality and operating costs.
+
+Reuse existing infrastructure.
+
+### Phase 10 — Quality assurance
+
+Perform functional, security, accessibility, performance and usability testing.
+
+Correct failures before recommending public deployment.
+
+## 35. Mandatory testing requirements
+
+Test:
+
+- Every navigation button.
+- Every major page.
+- Search and filtering.
+- Desktop and mobile layouts.
+- Image loading and fallbacks.
+- Map selection.
+- Map overlays.
+- Player marker placement.
+- Drawing and movement routes.
+- Zoom and pan.
+- Undo and redo.
+- Strategy saving.
+- Strategy restoration.
+- Clan permissions.
+- Unauthorized access prevention.
+- Account registration.
+- Recruitment workflows.
+- Membership entitlements.
+- API failure handling.
+- Stale-data indicators.
+- Private page indexing prevention.
+- Accessibility.
+- Performance.
+
+Target at least 95% successful completion of critical tasks in usability testing.
+
+Report measured results rather than assumed success.
+
+## 36. Seven-day initial development plan
+
+Day 1: Audit existing code, assets, security and business requirements.
+
+Day 2: Implement navigation, design system, dashboard and game directory.
+
+Day 3: Establish verified CDL map and weapon data structures.
+
+Day 4: Implement the interactive clan strategy editor.
+
+Day 5: Implement public game pages, search optimization and sharing.
+
+Day 6: Implement clan workflows, automation foundations and revenue interfaces.
+
+Day 7: Run tests, correct defects and produce an implementation report.
+
+This is a proposed development sprint, not a guarantee that every feature can be completed within seven days.
+
+## 37. Required completion report
+
+After every development phase, provide:
+
+- Files created.
+- Files modified.
+- Features implemented.
+- Features tested.
+- Tests passed.
+- Tests failed.
+- Outstanding defects.
+- Missing imagery.
+- Artwork permission requirements.
+- Missing API authorization.
+- Unverified game information.
+- Estimated additional costs.
+- Remaining development tasks.
+- Owner decisions required.
+
+Classify each requirement as:
+
+- Implemented and tested.
+- Implemented but not tested.
+- Partially implemented.
+- Awaiting verified information.
+- Awaiting authorization.
+- Not implemented.
+
+Do not report completion merely because a window or button exists.
+
+## 38. Final permanent directive
+
+Rule One must prioritize accuracy, ease of use, legitimate competitive improvement, organic traffic, customer retention, scalable revenue and low administrative overhead.
+
+Build real functionality rather than visual simulations.
+
+Preserve all five business rules.
+
+Do not fabricate information.
+
+Do not misrepresent third-party integrations.
+
+Do not weaken security.
+
+Do not spend money or deploy without approval.
+
+Begin by auditing the existing project, then proceed through the implementation phases in order.
+
+**RULE ONE — Maximum Competitive Intelligence. Minimum User Effort.**

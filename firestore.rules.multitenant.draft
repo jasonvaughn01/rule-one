@@ -1,0 +1,129 @@
+// STAGED MULTI-TENANT FIRESTORE RULES DRAFT (FOR EMULATOR TESTING ONLY — NOT DEPLOYED TO PRODUCTION)
+// Replaces single-club assumption with tenant-scoped `/clans/{clanId}/memberships/{uid}` RBAC,
+// explicit public opt-in allowlist `/publicClans/{slug}`, expiring invitations, and strict cross-clan isolation.
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isVerifiedUser() {
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true;
+    }
+
+    function membershipDoc(clanId, uid) {
+      return get(/databases/$(database)/documents/clans/$(clanId)/memberships/$(uid));
+    }
+
+    function isActiveMember(clanId) {
+      return isVerifiedUser()
+        && exists(/databases/$(database)/documents/clans/$(clanId)/memberships/$(request.auth.uid))
+        && membershipDoc(clanId, request.auth.uid).data.revoked == false;
+    }
+
+    function memberRole(clanId) {
+      return membershipDoc(clanId, request.auth.uid).data.role;
+    }
+
+    function isOwnerOrAdmin(clanId) {
+      return isActiveMember(clanId) && memberRole(clanId) in ['owner', 'admin'];
+    }
+
+    function isCaptainOrHigher(clanId) {
+      return isActiveMember(clanId) && memberRole(clanId) in ['owner', 'admin', 'captain'];
+    }
+
+    // Explicit public opt-in allowlist (zero private emails or roster secrets)
+    match /publicClans/{slug} {
+      allow get: if isValidId(slug) && resource.data.publicOptIn == true;
+      allow list: if resource.data.publicOptIn == true;
+      allow create, update: if isValidId(slug)
+        && isOwnerOrAdmin(request.resource.data.clanId)
+        && request.resource.data.keys().hasOnly([
+          'clanId', 'slug', 'displayName', 'primaryGame', 'region', 'publicOptIn', 'updatedAt'
+        ])
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if isValidId(slug) && isOwnerOrAdmin(resource.data.clanId);
+    }
+
+    // Tenant-scoped private Clan workspaces
+    match /clans/{clanId} {
+      allow get: if isValidId(clanId) && isActiveMember(clanId);
+      allow list: if false;
+      allow create: if isVerifiedUser()
+        && isValidId(clanId)
+        && request.resource.data.ownerUid == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if isValidId(clanId)
+        && isOwnerOrAdmin(clanId)
+        && request.resource.data.ownerUid == resource.data.ownerUid
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time;
+      allow delete: if false;
+
+      // Tenant-scoped membership documents with anti-escalation checks
+      match /memberships/{uid} {
+        allow get: if isValidId(clanId) && isValidId(uid) && isActiveMember(clanId);
+        allow list: if isValidId(clanId) && isActiveMember(clanId) && resource.data.clanId == clanId;
+
+        allow create: if isValidId(clanId)
+          && isValidId(uid)
+          && isOwnerOrAdmin(clanId)
+          && request.resource.data.clanId == clanId
+          && request.resource.data.role in ['admin', 'captain', 'member']
+          && request.resource.data.revoked == false
+          && request.resource.data.createdAt == request.time;
+
+        allow update: if isValidId(clanId)
+          && isValidId(uid)
+          && isOwnerOrAdmin(clanId)
+          && resource.data.role != 'owner'
+          && request.resource.data.role in ['admin', 'captain', 'member']
+          && request.resource.data.clanId == resource.data.clanId
+          && request.resource.data.updatedAt == request.time;
+
+        allow delete: if isValidId(clanId)
+          && isValidId(uid)
+          && isOwnerOrAdmin(clanId)
+          && resource.data.role != 'owner';
+      }
+
+      // Expiring invitations
+      match /invites/{inviteId} {
+        allow get, list: if isValidId(clanId) && isOwnerOrAdmin(clanId) && resource.data.clanId == clanId;
+        allow create: if isValidId(clanId)
+          && isValidId(inviteId)
+          && isOwnerOrAdmin(clanId)
+          && request.resource.data.clanId == clanId
+          && request.resource.data.expiresAt > request.time
+          && request.resource.data.revoked == false;
+        allow update: if isValidId(clanId)
+          && isValidId(inviteId)
+          && isOwnerOrAdmin(clanId)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['revoked', 'updatedAt']);
+        allow delete: if isValidId(clanId) && isOwnerOrAdmin(clanId);
+      }
+
+      // Playbooks & Scrims (tenant isolated)
+      match /playbooks/{playbookId} {
+        allow get, list: if isValidId(clanId) && isActiveMember(clanId) && resource.data.clanId == clanId;
+        allow create, update, delete: if isValidId(clanId) && isCaptainOrHigher(clanId);
+      }
+
+      match /scrims/{scrimId} {
+        allow get, list: if isValidId(clanId) && isActiveMember(clanId) && resource.data.clanId == clanId;
+        allow create, update, delete: if isValidId(clanId) && isCaptainOrHigher(clanId);
+      }
+    }
+  }
+}

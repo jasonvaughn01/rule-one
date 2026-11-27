@@ -1,0 +1,362 @@
+{
+  "Call of Duty: Modern Warfare 4": {
+    "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4435490/0c492be3204835d71e8b454b6eb1817f8ff68c0d/header.jpg?t=1794873974",
+    "imageSource": "Steam Store API (AppID 4435490)",
+    "steamAppId": 4435490,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1938090/library_600x900_2x.jpg"
+  },
+  "Counter-Strike 2": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 730)",
+    "steamAppId": 730,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/730/library_600x900_2x.jpg"
+  },
+  "Rainbow Six Siege": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/359550/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 359550)",
+    "steamAppId": 359550,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/359550/library_600x900_2x.jpg"
+  },
+  "Overwatch 2": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2357570)",
+    "steamAppId": 2357570,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/library_600x900_2x.jpg"
+  },
+  "Marvel Rivals": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2767030/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2767030)",
+    "steamAppId": 2767030,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2767030/library_600x900_2x.jpg"
+  },
+  "Halo Infinite": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1240440/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1240440)",
+    "steamAppId": 1240440,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1240440/library_600x900_2x.jpg"
+  },
+  "THE FINALS": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2073850/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2073850)",
+    "steamAppId": 2073850,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2073850/library_600x900_2x.jpg"
+  },
+  "Battlefield 6": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2807960)",
+    "steamAppId": 2807960,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2807960/library_600x900_2x.jpg"
+  },
+  "Destiny 2": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1085660/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1085660)",
+    "steamAppId": 1085660,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1085660/library_600x900_2x.jpg"
+  },
+  "Team Fortress 2": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/440/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 440)",
+    "steamAppId": 440,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/440/library_600x900_2x.jpg"
+  },
+  "Escape from Tarkov": {
+    "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3932890/4dd12ea3b00a4f8b67bfd629f3b9abbf8d5cab05/header_alt_assets_2.jpg?t=1794590253",
+    "imageSource": "Steam Store API (AppID 3932890)",
+    "steamAppId": 3932890,
+    "posterUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3932890/4dd12ea3b00a4f8b67bfd629f3b9abbf8d5cab05/header_alt_assets_2.jpg?t=1794590253"
+  },
+  "Delta Force": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2507950/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2507950)",
+    "steamAppId": 2507950,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2507950/library_600x900_2x.jpg"
+  },
+  "Call of Duty: Warzone": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962663/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1962663)",
+    "steamAppId": 1962663,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1962663/library_600x900_2x.jpg"
+  },
+  "Apex Legends": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1172470)",
+    "steamAppId": 1172470,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/library_600x900_2x.jpg"
+  },
+  "PUBG: BATTLEGROUNDS": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 578080)",
+    "steamAppId": 578080,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/578080/library_600x900_2x.jpg"
+  },
+  "Dota 2": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 570)",
+    "steamAppId": 570,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/570/library_600x900_2x.jpg"
+  },
+  "SMITE 2": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2437170/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2437170)",
+    "steamAppId": 2437170,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2437170/library_600x900_2x.jpg"
+  },
+  "Deadlock": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1422450/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1422450)",
+    "steamAppId": 1422450,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1422450/library_600x900_2x.jpg"
+  },
+  "Street Fighter 6": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1364780/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1364780)",
+    "steamAppId": 1364780,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1364780/library_600x900_2x.jpg"
+  },
+  "Tekken 8": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1778820/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1778820)",
+    "steamAppId": 1778820,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1778820/library_600x900_2x.jpg"
+  },
+  "Mortal Kombat 1": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1971870/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1971870)",
+    "steamAppId": 1971870,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1971870/library_600x900_2x.jpg"
+  },
+  "Guilty Gear Strive": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1384160/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1384160)",
+    "steamAppId": 1384160,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1384160/library_600x900_2x.jpg"
+  },
+  "Granblue Fantasy Versus: Rising": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2157560/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2157560)",
+    "steamAppId": 2157560,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2157560/library_600x900_2x.jpg"
+  },
+  "Fatal Fury: City of the Wolves": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2492040/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2492040)",
+    "steamAppId": 2492040,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2492040/library_600x900_2x.jpg"
+  },
+  "Rocket League": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252950/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 252950)",
+    "steamAppId": 252950,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252950/library_600x900_2x.jpg"
+  },
+  "EA Sports FC": {
+    "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3405690/2d96aa1b06e453cd62dae9029d412f19e61932c3/header.jpg?t=1789751159",
+    "imageSource": "Steam Store API (AppID 3405690)",
+    "steamAppId": 3405690,
+    "posterUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3405690/2d96aa1b06e453cd62dae9029d412f19e61932c3/header.jpg?t=1789751159"
+  },
+  "eFootball": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1665460)",
+    "steamAppId": 1665460,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1665460/library_600x900_2x.jpg"
+  },
+  "NBA 2K": {
+    "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3472040/f7e126add75c3b09779b44cd349be93d31b0a80b/header.jpg?t=1786115051",
+    "imageSource": "Steam Store API (AppID 3472040)",
+    "steamAppId": 3472040,
+    "posterUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3472040/f7e126add75c3b09779b44cd349be93d31b0a80b/header.jpg?t=1786115051"
+  },
+  "Madden NFL": {
+    "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3940610/7ed2213f0170c1b55410b82ed89a8bab3911c6ea/header.jpg?t=1792087154",
+    "imageSource": "Steam Store API (AppID 3940610)",
+    "steamAppId": 3940610,
+    "posterUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3940610/7ed2213f0170c1b55410b82ed89a8bab3911c6ea/header.jpg?t=1792087154"
+  },
+  "iRacing": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/266410/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 266410)",
+    "steamAppId": 266410,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/266410/library_600x900_2x.jpg"
+  },
+  "Forza Motorsport": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2440510/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2440510)",
+    "steamAppId": 2440510,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2440510/library_600x900_2x.jpg"
+  },
+  "F1 series": {
+    "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3059520/76dc8ac45f1bd6dec26e04434ca1c8814e7bb330/header.jpg?t=1786646076",
+    "imageSource": "Steam Store API (AppID 3059520)",
+    "steamAppId": 3059520,
+    "posterUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3059520/76dc8ac45f1bd6dec26e04434ca1c8814e7bb330/header.jpg?t=1786646076"
+  },
+  "Trackmania": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2225070/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2225070)",
+    "steamAppId": 2225070,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2225070/library_600x900_2x.jpg"
+  },
+  "Age of Empires IV": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1466860/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1466860)",
+    "steamAppId": 1466860,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1466860/library_600x900_2x.jpg"
+  },
+  "Magic: The Gathering Arena": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2141910/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 2141910)",
+    "steamAppId": 2141910,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2141910/library_600x900_2x.jpg"
+  },
+  "Rust": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252490/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 252490)",
+    "steamAppId": 252490,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/252490/library_600x900_2x.jpg"
+  },
+  "GeoGuessr": {
+    "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3478870/e0c0522dd127b964e0917c613c51a9c9f2da21fb/header.jpg?t=1795688647",
+    "imageSource": "Steam Store API (AppID 3478870)",
+    "steamAppId": 3478870,
+    "posterUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3478870/e0c0522dd127b964e0917c613c51a9c9f2da21fb/header.jpg?t=1795688647"
+  },
+  "War Thunder": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/236390/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 236390)",
+    "steamAppId": 236390,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/236390/library_600x900_2x.jpg"
+  },
+  "World of Tanks": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1407200/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1407200)",
+    "steamAppId": 1407200,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1407200/library_600x900_2x.jpg"
+  },
+  "Naraka: Bladepoint": {
+    "imageUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1203220/header.jpg",
+    "imageSource": "Steam Store CDN (AppID 1203220)",
+    "steamAppId": 1203220,
+    "posterUrl": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1203220/library_600x900_2x.jpg"
+  },
+  "Fortnite": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a8/42/76/a8427621-3e12-9a95-9d16-34b72c385105/EN_FNBR_43-00_C7S4_Shot_1_iOS_AppStore_Screenshot_iPad_2752x2064.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/a8/42/76/a8427621-3e12-9a95-9d16-34b72c385105/EN_FNBR_43-00_C7S4_Shot_1_iOS_AppStore_Screenshot_iPad_2752x2064.jpg/900x506bb.jpg"
+  },
+  "PUBG Mobile": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/89/a7/85/89a7858f-912a-02bf-5a52-702149a563e6/1.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/89/a7/85/89a7858f-912a-02bf-5a52-702149a563e6/1.jpg/900x506bb.jpg"
+  },
+  "Free Fire": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/62/98/88/62988857-1771-9c7d-3448-cd69f6303ec9/FFO_KV_2732x2048.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/62/98/88/62988857-1771-9c7d-3448-cd69f6303ec9/FFO_KV_2732x2048.jpg/900x506bb.jpg"
+  },
+  "Call of Duty: Mobile": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e9/ef/d4/e9efd43e-6852-f2fe-395e-e794f4844ff3/Roach_2732x2048_Final.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/e9/ef/d4/e9efd43e-6852-f2fe-395e-e794f4844ff3/Roach_2732x2048_Final.jpg/900x506bb.jpg"
+  },
+  "Mobile Legends: Bang Bang": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cb/d0/13/cbd01337-40f3-fe11-ab01-31ca7a47320c/1_EN.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cb/d0/13/cbd01337-40f3-fe11-ab01-31ca7a47320c/1_EN.jpg/900x506bb.jpg"
+  },
+  "Honor of Kings": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/54/33/50/5433501c-e9d3-0077-b7b9-9ad13eb016a5/0.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/54/33/50/5433501c-e9d3-0077-b7b9-9ad13eb016a5/0.jpg/900x506bb.jpg"
+  },
+  "League of Legends: Wild Rift": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/50/7c/37/507c3783-5e7c-6f3d-9a1f-7036047a99e6/6D_ASO_Screenshots-Hwei-2732-2048_IPAD_PRO_3GEN_129.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/50/7c/37/507c3783-5e7c-6f3d-9a1f-7036047a99e6/6D_ASO_Screenshots-Hwei-2732-2048_IPAD_PRO_3GEN_129.jpg/900x506bb.jpg"
+  },
+  "Pokémon Unite": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/57/83/66/57836647-148e-b653-bb19-e21923ff0988/51b74eeb-ba1d-44fb-9246-36cafb3137fe_KV_2732_U00d72048.png/900x506bb.png",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/57/83/66/57836647-148e-b653-bb19-e21923ff0988/51b74eeb-ba1d-44fb-9246-36cafb3137fe_KV_2732_U00d72048.png/900x506bb.png"
+  },
+  "Teamfight Tactics": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/33/53/90/33539087-7152-0c44-89a0-e2413c95c71b/TFT_ST1826_ASO_ScreenshotUpdates_01_2732_U200a_U00d7_U200a2048_UPDATED_v001_SCha.png/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/33/53/90/33539087-7152-0c44-89a0-e2413c95c71b/TFT_ST1826_ASO_ScreenshotUpdates_01_2732_U200a_U00d7_U200a2048_UPDATED_v001_SCha.png/900x506bb.jpg"
+  },
+  "Hearthstone": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cd/91/60/cd9160bf-93f0-66d1-6244-d6e34fac83f8/HS_37p0_RBE_NowLive_AppStore_ScreenshotSizes_enUK__2732x2048.png/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/cd/91/60/cd9160bf-93f0-66d1-6244-d6e34fac83f8/HS_37p0_RBE_NowLive_AppStore_ScreenshotSizes_enUK__2732x2048.png/900x506bb.jpg"
+  },
+  "Clash Royale": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a5/88/3d/a5883d0f-eb3b-c8a0-3c18-76a7df7af251/CR_enUS_FullGameplay_V1_SS1_iOS_13_2048x2732.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/a5/88/3d/a5883d0f-eb3b-c8a0-3c18-76a7df7af251/CR_enUS_FullGameplay_V1_SS1_iOS_13_2048x2732.jpg/900x506bb.jpg"
+  },
+  "Brawl Stars": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b4/3c/d4/b43cd473-21c1-ea7d-7fe2-5ad8d4edbcfb/6c10914b-a0db-4a32-8b1f-aac1dd0c27ff_Rank_Up_and_Customize_2732x2048_EN.png/900x506bb.png",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b4/3c/d4/b43cd473-21c1-ea7d-7fe2-5ad8d4edbcfb/6c10914b-a0db-4a32-8b1f-aac1dd0c27ff_Rank_Up_and_Customize_2732x2048_EN.png/900x506bb.png"
+  },
+  "Clash of Clans": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/19/ff/97/19ff9784-9954-bbbc-caf3-36d8d802e589/COC_enUS_V1_SS1_iOS_13_2732x2048.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/19/ff/97/19ff9784-9954-bbbc-caf3-36d8d802e589/COC_enUS_V1_SS1_iOS_13_2732x2048.jpg/900x506bb.jpg"
+  },
+  "Minecraft": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/be/e0/bd/bee0bd58-7fd7-0203-2507-0b95bc2a3f51/pr_source.png/900x506bb.png",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/be/e0/bd/bee0bd58-7fd7-0203-2507-0b95bc2a3f51/pr_source.png/900x506bb.png"
+  },
+  "Roblox": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/40/83/d3/4083d3c7-2a51-6543-99ce-3ea49d5b3a54/EN__ASO_Q4_26_Default_EEAO_2602_Apple_iPad_SC1.jpg/900x506bb.jpg",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/40/83/d3/4083d3c7-2a51-6543-99ce-3ea49d5b3a54/EN__ASO_Q4_26_Default_EEAO_2602_Apple_iPad_SC1.jpg/900x506bb.jpg"
+  },
+  "Chess.com": {
+    "imageUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5d/91/55/5d9155d9-9ee0-a1fa-25da-62ada1ca138e/app_screenshot_2732x2048_1_cover_ribbon.png/900x506bb.png",
+    "imageSource": "Apple App Store Official Listing CDN",
+    "posterUrl": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/5d/91/55/5d9155d9-9ee0-a1fa-25da-62ada1ca138e/app_screenshot_2732x2048_1_cover_ribbon.png/900x506bb.png"
+  },
+  "VALORANT": {
+    "imageUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Valorant_logo_-_pink_color_version.svg/960px-Valorant_logo_-_pink_color_version.svg.png",
+    "imageSource": "Wikimedia / Wikipedia (Valorant)",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/b/ba/Valorant_cover.jpg"
+  },
+  "CrossFire": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/bd/CrossFire_%28video_game%29_logo.png",
+    "imageSource": "Wikimedia / Wikipedia (Crossfire_(2007_video_game))",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/b/bd/CrossFire_%28video_game%29_logo.png"
+  },
+  "League of Legends": {
+    "imageUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg",
+    "imageSource": "Riot Games Official Data Dragon CDN",
+    "posterUrl": "https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ahri_0.jpg"
+  },
+  "Super Smash Bros. Ultimate": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg",
+    "imageSource": "Wikimedia / Wikipedia (Super_Smash_Bros._Ultimate)",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg"
+  },
+  "Gran Turismo 7": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/1/14/Gran_Turismo_7_cover_art.jpg",
+    "imageSource": "Wikimedia / Wikipedia (Gran_Turismo_7)",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/1/14/Gran_Turismo_7_cover_art.jpg"
+  },
+  "StarCraft II": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/2/20/StarCraft_II_-_Box_Art.jpg",
+    "imageSource": "Wikimedia / Wikipedia (StarCraft_II:_Wings_of_Liberty)",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/2/20/StarCraft_II_-_Box_Art.jpg"
+  },
+  "World of Warcraft": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/World_of_Warcraft.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageSource": "Wikimedia / Wikipedia Official Art",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/en/6/65/World_of_Warcraft.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  "osu!": {
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Osu%21_logo_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageSource": "Wikimedia / Wikipedia Official Art",
+    "posterUrl": "https://upload.wikimedia.org/wikipedia/commons/2/29/Osu%21_logo_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  }
+}

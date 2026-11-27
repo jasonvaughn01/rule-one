@@ -1,4 +1,25 @@
-export type AppTab = 'map_control' | 'match_desk' | 'cdl_intel' | 'vault';
+export type InterfaceMode = 'standard' | 'professional';
+
+export type AppTab =
+  | 'games'
+  | 'catalog'
+  | 'developers'
+  | 'mw4_pilot'
+  | 'strategies'
+  | 'clan_hq'
+  | 'recruitment'
+  | 'events'
+  | 'statistics'
+  | 'news'
+  | 'equipment'
+  | 'saved'
+  | 'notifications'
+  | 'settings'
+  | 'ops'
+  | 'map_control'
+  | 'match_desk'
+  | 'cdl_intel'
+  | 'vault';
 
 export type Mw4MapId =
   | 'coal'

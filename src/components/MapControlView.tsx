@@ -1,7 +1,10 @@
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {
   Bookmark,
   Crosshair,
+  ExternalLink,
+  Eye,
+  EyeOff,
   Flame,
   Move,
   Play,
@@ -34,6 +37,7 @@ interface RoundSimOutcome {
 }
 
 interface MapControlViewProps {
+  initialMapId?: Mw4MapId;
   clubState: ClubState;
   totalEdgeBonus: number;
   savedPlaybooks: SavedPlaybook[];
@@ -45,6 +49,10 @@ interface MapControlViewProps {
 
 const SVG_W = 1000;
 const SVG_H = 620;
+const DISPLAY_H = 1000;
+
+const toDisplayY = (y: number): number => Math.round((y / SVG_H) * DISPLAY_H);
+const fromDisplayY = (dy: number): number => Math.round((dy / DISPLAY_H) * SVG_H);
 
 function computeConePath(x: number, y: number, deg: number, length = 130, spread = 24): string {
   const rad1 = ((deg - spread) * Math.PI) / 180;
@@ -57,6 +65,7 @@ function computeConePath(x: number, y: number, deg: number, length = 130, spread
 }
 
 export function MapControlView({
+  initialMapId,
   clubState,
   totalEdgeBonus,
   savedPlaybooks,
@@ -65,9 +74,11 @@ export function MapControlView({
   onNavigate,
   onLaunchMapScrim,
 }: MapControlViewProps) {
-  const [mapId, setMapId] = useState<Mw4MapId>('coal');
+  const [mapId, setMapId] = useState<Mw4MapId>(initialMapId || 'coal');
   const [side, setSide] = useState<RoundSide>('offense');
   const [tool, setTool] = useState<ToolMode>('move');
+  const [showTacticalOverlay, setShowTacticalOverlay] = useState<boolean>(true);
+  const [failedMapUrls, setFailedMapUrls] = useState<Record<string, boolean>>({});
 
   const currentMap = useMemo(
     () => MW4_SND_MAPS.find((m) => m.id === mapId) || MW4_SND_MAPS[0],
@@ -102,6 +113,16 @@ export function MapControlView({
     setRouteDraftStart(null);
     setSimResult(null);
   };
+
+  useEffect(() => {
+    if (!initialMapId || initialMapId === mapId) return;
+    const nextMap = MW4_SND_MAPS.find((m) => m.id === initialMapId);
+    if (!nextMap) return;
+    setMapId(initialMapId);
+    const matching = nextMap.playbooks.find((p) => p.side === side) || nextMap.playbooks[0];
+    setSide(matching.side);
+    loadPlaybook(matching);
+  }, [initialMapId]);
 
   const handleMapChange = (nextMapId: Mw4MapId) => {
     setMapId(nextMapId);
@@ -214,7 +235,8 @@ export function MapControlView({
     if (!svg) return null;
     const rect = svg.getBoundingClientRect();
     const x = Math.round(((e.clientX - rect.left) / rect.width) * SVG_W);
-    const y = Math.round(((e.clientY - rect.top) / rect.height) * SVG_H);
+    const displayY = Math.round(((e.clientY - rect.top) / rect.height) * DISPLAY_H);
+    const y = fromDisplayY(displayY);
     return {
       x: Math.max(30, Math.min(SVG_W - 30, x)),
       y: Math.max(30, Math.min(SVG_H - 30, y)),
@@ -540,32 +562,74 @@ export function MapControlView({
             </div>
           </div>
 
-          {/* SVG Blueprint Canvas */}
-          <div className="bg-[#0D0F14] border border-[#22252E] rounded-lg overflow-hidden">
-            <div className="px-4 py-2.5 border-b border-[#22252E] flex flex-wrap items-center justify-between gap-2 text-xs text-[#9C9A94]">
-              <span>
-                <span className="text-[#F3F1EC] font-medium">{currentMap.name}</span> ·{' '}
-                {currentMap.poolNote} · {currentMap.setting}
-              </span>
-              <span className="text-[#C9A86A]">
-                {tool === 'move'
-                  ? `Active: ${selectedOp.code} (${selectedOp.role}) — Click map to reposition`
-                  : tool === 'route'
-                    ? routeDraftStart
-                      ? 'Click destination point to complete route arrow'
-                      : 'Click start point on map for push/pinch arrow'
-                    : `Click anywhere on map to deploy ${tool}`}
-              </span>
+          {/* Real Official MW4 Tac-Map Canvas with Interactive Tactical Overlay */}
+          <div className="bg-[#0B0D12] border border-[#2A303E] rounded-lg overflow-hidden">
+            <div className="px-4 py-2.5 border-b border-[#252A36] bg-[#14161D] flex flex-wrap items-center justify-between gap-2 text-xs text-[#A7AFBD]">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-[#F5F5F5] font-semibold">{currentMap.name}</span>
+                <span>&middot; Official MW4 Tac-Map &middot; {currentMap.setting}</span>
+              </div>
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="text-[#D6B477]">
+                  {tool === 'move'
+                    ? `Active: ${selectedOp.code} (${selectedOp.role}) — Click map to reposition`
+                    : tool === 'route'
+                      ? routeDraftStart
+                        ? 'Click destination point to complete route arrow'
+                        : 'Click start point on map for push/pinch arrow'
+                      : `Click anywhere on map to deploy ${tool}`}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setShowTacticalOverlay((prev) => !prev)}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded border border-[#353D4B] bg-[#1C1F27] text-[#F5F5F5] hover:border-[#D6B477] transition-colors whitespace-nowrap"
+                >
+                  {showTacticalOverlay ? (
+                    <>
+                      <EyeOff className="w-3.5 h-3.5 text-[#D6B477]" aria-hidden="true" />
+                      Hide Overlay
+                    </>
+                  ) : (
+                    <>
+                      <Eye className="w-3.5 h-3.5 text-[#D6B477]" aria-hidden="true" />
+                      Show Overlay
+                    </>
+                  )}
+                </button>
+                <a
+                  href={currentMap.officialGuideUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[#D6B477] hover:underline whitespace-nowrap"
+                >
+                  CoD Guide
+                  <ExternalLink className="w-3 h-3" aria-hidden="true" />
+                </a>
+              </div>
             </div>
 
-            <div className="relative w-full aspect-[1000/620] select-none">
+            <div className="relative w-full max-w-[760px] mx-auto aspect-square select-none bg-[#0B0D12]">
+              {/* Real Official Call of Duty: Modern Warfare 4 2048x2048 Tactical Overhead Map */}
+              {!failedMapUrls[currentMap.tacMapImageUrl] && (
+                <img
+                  key={currentMap.tacMapImageUrl}
+                  src={currentMap.tacMapImageUrl}
+                  alt={`Official Call of Duty: Modern Warfare 4 ${currentMap.name} top-down tactical map`}
+                  referrerPolicy="no-referrer"
+                  onError={() =>
+                    setFailedMapUrls((prev) => ({ ...prev, [currentMap.tacMapImageUrl]: true }))
+                  }
+                  className="absolute inset-0 w-full h-full object-contain pointer-events-none select-none"
+                />
+              )}
+
               <svg
                 ref={svgRef}
-                viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+                viewBox={`0 0 ${SVG_W} ${DISPLAY_H}`}
                 onClick={handleCanvasClick}
-                className="w-full h-full block cursor-crosshair"
+                className="relative z-10 w-full h-full block cursor-crosshair"
                 role="application"
-                aria-label={`${currentMap.name} Modern Warfare 4 CDL Search and Destroy tactical board`}
+                aria-label={`${currentMap.name} Modern Warfare 4 tactical board`}
               >
                 <defs>
                   <pattern id="mw4-grid" width="50" height="50" patternUnits="userSpaceOnUse">
@@ -585,334 +649,250 @@ export function MapControlView({
                     markerHeight="6"
                     orient="auto-start-reverse"
                   >
-                    <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#C9A86A" />
+                    <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#D6B477" />
                   </marker>
                 </defs>
 
-                <rect width={SVG_W} height={SVG_H} fill="#0B0D12" />
-                <rect width={SVG_W} height={SVG_H} fill="url(#mw4-grid)" />
-                <rect
-                  x="24"
-                  y="24"
-                  width={SVG_W - 48}
-                  height={SVG_H - 48}
-                  fill="none"
-                  stroke="#272B36"
-                  strokeWidth="1.5"
-                />
-
-                {/* Lane Control Zones */}
-                {currentMap.zones.map((z) => {
-                  const laneData =
-                    z.lane === 'A-Lane'
-                      ? tacticalAnalysis.aLane
-                      : z.lane === 'Mid'
-                        ? tacticalAnalysis.midLane
-                        : tacticalAnalysis.bLane;
-                  const fill =
-                    laneData.status === 'Secured'
-                      ? 'rgba(74, 222, 128, 0.08)'
-                      : laneData.status === 'Contested'
-                        ? 'rgba(201, 168, 106, 0.08)'
-                        : 'rgba(248, 113, 113, 0.06)';
-                  const stroke =
-                    laneData.status === 'Secured'
-                      ? 'rgba(74, 222, 128, 0.25)'
-                      : laneData.status === 'Contested'
-                        ? 'rgba(201, 168, 106, 0.24)'
-                        : 'rgba(248, 113, 113, 0.18)';
-
-                  return (
-                    <circle
-                      key={z.id}
-                      cx={z.x}
-                      cy={z.y}
-                      r={z.radius}
-                      fill={fill}
-                      stroke={stroke}
-                      strokeDasharray="4 4"
-                      strokeWidth="1"
-                    />
-                  );
-                })}
-
-                {/* Architectural Map Structures & Callouts */}
-                {currentMap.buildings.map((b) => (
-                  <g key={b.id}>
-                    <rect
-                      x={b.x}
-                      y={b.y}
-                      width={b.w}
-                      height={b.h}
-                      rx="4"
-                      fill="#161A23"
-                      stroke="#2D3240"
-                      strokeWidth="1.5"
-                    />
-                    <text
-                      x={b.labelX ?? b.x + b.w / 2}
-                      y={b.labelY ?? b.y + b.h / 2 + 4}
-                      textAnchor="middle"
-                      fill="#8B8F9A"
-                      fontSize="12"
-                      fontFamily="DM Sans, sans-serif"
-                      fontWeight="500"
-                    >
-                      {b.label}
-                    </text>
+                {/* Offline fallback schematic ONLY if the official MW4 image cannot load */}
+                {failedMapUrls[currentMap.tacMapImageUrl] && (
+                  <g>
+                    <rect width={SVG_W} height={DISPLAY_H} fill="#0B0D12" />
+                    <rect width={SVG_W} height={DISPLAY_H} fill="url(#mw4-grid)" />
+                    {currentMap.buildings.map((b) => (
+                      <g key={b.id}>
+                        <rect
+                          x={b.x}
+                          y={toDisplayY(b.y)}
+                          width={b.w}
+                          height={toDisplayY(b.h)}
+                          rx="4"
+                          fill="#161A23"
+                          stroke="#2D3240"
+                          strokeWidth="1.5"
+                        />
+                        <text
+                          x={b.labelX ?? b.x + b.w / 2}
+                          y={toDisplayY(b.labelY ?? b.y + b.h / 2 + 4)}
+                          textAnchor="middle"
+                          fill="#8B8F9A"
+                          fontSize="13"
+                          fontFamily="DM Sans, sans-serif"
+                          fontWeight="500"
+                        >
+                          {b.label}
+                        </text>
+                      </g>
+                    ))}
                   </g>
-                ))}
-
-                {/* Spawns */}
-                <g>
-                  <circle
-                    cx={currentMap.offenseSpawn.x}
-                    cy={currentMap.offenseSpawn.y}
-                    r="16"
-                    fill="#161A23"
-                    stroke="#C9A86A"
-                    strokeWidth="1.5"
-                  />
-                  <text
-                    x={currentMap.offenseSpawn.x}
-                    y={currentMap.offenseSpawn.y + 4}
-                    textAnchor="middle"
-                    fill="#C9A86A"
-                    fontSize="10"
-                    fontFamily="JetBrains Mono, monospace"
-                    fontWeight="600"
-                  >
-                    OFF
-                  </text>
-                  <text
-                    x={currentMap.offenseSpawn.x + 24}
-                    y={currentMap.offenseSpawn.y + 4}
-                    fill="#8C8982"
-                    fontSize="11"
-                    fontFamily="DM Sans, sans-serif"
-                  >
-                    {currentMap.offenseSpawn.label}
-                  </text>
-                </g>
-
-                <g>
-                  <circle
-                    cx={currentMap.defenseSpawn.x}
-                    cy={currentMap.defenseSpawn.y}
-                    r="16"
-                    fill="#161A23"
-                    stroke="#6E85A8"
-                    strokeWidth="1.5"
-                  />
-                  <text
-                    x={currentMap.defenseSpawn.x}
-                    y={currentMap.defenseSpawn.y + 4}
-                    textAnchor="middle"
-                    fill="#9EB8DE"
-                    fontSize="10"
-                    fontFamily="JetBrains Mono, monospace"
-                    fontWeight="600"
-                  >
-                    DEF
-                  </text>
-                  <text
-                    x={currentMap.defenseSpawn.x - 24}
-                    y={currentMap.defenseSpawn.y + 4}
-                    textAnchor="end"
-                    fill="#8C8982"
-                    fontSize="11"
-                    fontFamily="DM Sans, sans-serif"
-                  >
-                    {currentMap.defenseSpawn.label}
-                  </text>
-                </g>
-
-                {/* Bomb Sites */}
-                {currentMap.sites.map((site) => (
-                  <g key={site.id}>
-                    <rect
-                      x={site.x - 20}
-                      y={site.y - 20}
-                      width="40"
-                      height="40"
-                      rx="6"
-                      fill="#1B1612"
-                      stroke="#C9A86A"
-                      strokeWidth="2"
-                    />
-                    <text
-                      x={site.x}
-                      y={site.y + 5}
-                      textAnchor="middle"
-                      fill="#C9A86A"
-                      fontSize="16"
-                      fontFamily="Outfit, sans-serif"
-                      fontWeight="700"
-                    >
-                      {site.id}
-                    </text>
-                    <text
-                      x={site.x}
-                      y={site.y + 34}
-                      textAnchor="middle"
-                      fill="#D6D3CB"
-                      fontSize="11"
-                      fontFamily="DM Sans, sans-serif"
-                      fontWeight="500"
-                    >
-                      {site.name}
-                    </text>
-                  </g>
-                ))}
-
-                {/* Push / Pinch Route Arrows */}
-                {routes.map((r) => (
-                  <line
-                    key={r.id}
-                    x1={r.fromX}
-                    y1={r.fromY}
-                    x2={r.toX}
-                    y2={r.toY}
-                    stroke="#C9A86A"
-                    strokeWidth="2.5"
-                    strokeDasharray="6 4"
-                    markerEnd="url(#mw4-arrow)"
-                  />
-                ))}
-
-                {routeDraftStart && (
-                  <circle cx={routeDraftStart.x} cy={routeDraftStart.y} r="6" fill="#C9A86A" />
                 )}
 
-                {/* Deployed CDL Legal Utility */}
-                {utilities.map((u) => {
-                  if (u.kind === 'smoke') {
-                    return (
-                      <g key={u.id}>
-                        <circle
-                          cx={u.x}
-                          cy={u.y}
-                          r="40"
-                          fill="rgba(214, 219, 230, 0.22)"
-                          stroke="rgba(226, 232, 240, 0.55)"
-                          strokeWidth="1.5"
-                          strokeDasharray="3 3"
-                        />
-                        <text
-                          x={u.x}
-                          y={u.y + 4}
-                          textAnchor="middle"
-                          fill="#F3F1EC"
-                          fontSize="10"
-                          fontFamily="JetBrains Mono, monospace"
-                        >
-                          SMOKE
-                        </text>
-                      </g>
-                    );
-                  }
-                  if (u.kind === 'nade') {
-                    return (
-                      <g key={u.id}>
-                        <circle
-                          cx={u.x}
-                          cy={u.y}
-                          r="24"
-                          fill="rgba(239, 68, 68, 0.16)"
-                          stroke="rgba(248, 113, 113, 0.75)"
-                          strokeWidth="1.5"
-                        />
-                        <text
-                          x={u.x}
-                          y={u.y + 4}
-                          textAnchor="middle"
-                          fill="#FCA5A5"
-                          fontSize="10"
-                          fontFamily="JetBrains Mono, monospace"
-                        >
-                          NADE
-                        </text>
-                      </g>
-                    );
-                  }
-                  return (
-                    <g key={u.id}>
-                      <circle
-                        cx={u.x}
-                        cy={u.y}
-                        r="18"
-                        fill="rgba(74, 222, 128, 0.14)"
-                        stroke="rgba(74, 222, 128, 0.75)"
-                        strokeWidth="1.5"
-                      />
-                      <text
-                        x={u.x}
-                        y={u.y + 3.5}
-                        textAnchor="middle"
-                        fill="#86EFAC"
-                        fontSize="9"
-                        fontFamily="JetBrains Mono, monospace"
-                      >
-                        TRPY
-                      </text>
-                    </g>
-                  );
-                })}
+                {showTacticalOverlay && (
+                  <g>
+                    {/* Subtle Lane Control Zones */}
+                    {currentMap.zones.map((z) => {
+                      const laneData =
+                        z.lane === 'A-Lane'
+                          ? tacticalAnalysis.aLane
+                          : z.lane === 'Mid'
+                            ? tacticalAnalysis.midLane
+                            : tacticalAnalysis.bLane;
+                      const fill =
+                        laneData.status === 'Secured'
+                          ? 'rgba(74, 222, 128, 0.12)'
+                          : laneData.status === 'Contested'
+                            ? 'rgba(214, 180, 119, 0.12)'
+                            : 'rgba(248, 113, 113, 0.10)';
+                      const stroke =
+                        laneData.status === 'Secured'
+                          ? 'rgba(74, 222, 128, 0.45)'
+                          : laneData.status === 'Contested'
+                            ? 'rgba(214, 180, 119, 0.45)'
+                            : 'rgba(248, 113, 113, 0.40)';
 
-                {/* 4v4 MW4 Squad Tokens */}
-                {operators.map((op) => {
-                  const isSelected = op.id === selectedOpId;
-                  return (
-                    <g
-                      key={op.id}
-                      onClick={(ev) => {
-                        ev.stopPropagation();
-                        setSelectedOpId(op.id);
-                        setTool('move');
-                      }}
-                      className="cursor-pointer"
-                    >
-                      <path
-                        d={computeConePath(op.x, op.y, op.aimDeg)}
-                        fill={
-                          isSelected
-                            ? 'rgba(201, 168, 106, 0.22)'
-                            : 'rgba(201, 168, 106, 0.10)'
-                        }
+                      return (
+                        <circle
+                          key={z.id}
+                          cx={z.x}
+                          cy={toDisplayY(z.y)}
+                          r={z.radius}
+                          fill={fill}
+                          stroke={stroke}
+                          strokeDasharray="6 6"
+                          strokeWidth="1.5"
+                        />
+                      );
+                    })}
+
+                    {/* Push / Pinch Route Arrows */}
+                    {routes.map((r) => (
+                      <line
+                        key={r.id}
+                        x1={r.fromX}
+                        y1={toDisplayY(r.fromY)}
+                        x2={r.toX}
+                        y2={toDisplayY(r.toY)}
+                        stroke="#D6B477"
+                        strokeWidth="3.5"
+                        strokeDasharray="8 5"
+                        markerEnd="url(#mw4-arrow)"
                       />
+                    ))}
+
+                    {routeDraftStart && (
                       <circle
-                        cx={op.x}
-                        cy={op.y}
-                        r={isSelected ? '19' : '16'}
-                        fill={isSelected ? '#C9A86A' : '#1A1F2B'}
-                        stroke={isSelected ? '#F3F1EC' : '#C9A86A'}
+                        cx={routeDraftStart.x}
+                        cy={toDisplayY(routeDraftStart.y)}
+                        r="8"
+                        fill="#D6B477"
+                        stroke="#0B0D12"
                         strokeWidth="2"
                       />
-                      <text
-                        x={op.x}
-                        y={op.y + 4}
-                        textAnchor="middle"
-                        fill={isSelected ? '#090A0D' : '#F3F1EC'}
-                        fontSize="10"
-                        fontFamily="JetBrains Mono, monospace"
-                        fontWeight="700"
-                      >
-                        {op.code}
-                      </text>
-                      <text
-                        x={op.x}
-                        y={op.y + 31}
-                        textAnchor="middle"
-                        fill="#E4E1DA"
-                        fontSize="10"
-                        fontFamily="DM Sans, sans-serif"
-                        fontWeight="500"
-                      >
-                        {op.role}
-                      </text>
-                    </g>
-                  );
-                })}
+                    )}
+
+                    {/* Deployed CDL Legal Utility */}
+                    {utilities.map((u) => {
+                      const uy = toDisplayY(u.y);
+                      if (u.kind === 'smoke') {
+                        return (
+                          <g key={u.id}>
+                            <circle
+                              cx={u.x}
+                              cy={uy}
+                              r="46"
+                              fill="rgba(226, 232, 240, 0.32)"
+                              stroke="rgba(248, 250, 252, 0.85)"
+                              strokeWidth="2"
+                              strokeDasharray="4 4"
+                            />
+                            <text
+                              x={u.x}
+                              y={uy + 4}
+                              textAnchor="middle"
+                              fill="#FFFFFF"
+                              fontSize="12"
+                              fontFamily="JetBrains Mono, monospace"
+                              fontWeight="700"
+                            >
+                              SMOKE
+                            </text>
+                          </g>
+                        );
+                      }
+                      if (u.kind === 'nade') {
+                        return (
+                          <g key={u.id}>
+                            <circle
+                              cx={u.x}
+                              cy={uy}
+                              r="28"
+                              fill="rgba(239, 68, 68, 0.28)"
+                              stroke="rgba(248, 113, 113, 0.95)"
+                              strokeWidth="2"
+                            />
+                            <text
+                              x={u.x}
+                              y={uy + 4}
+                              textAnchor="middle"
+                              fill="#FEE2E2"
+                              fontSize="11"
+                              fontFamily="JetBrains Mono, monospace"
+                              fontWeight="700"
+                            >
+                              NADE
+                            </text>
+                          </g>
+                        );
+                      }
+                      return (
+                        <g key={u.id}>
+                          <circle
+                            cx={u.x}
+                            cy={uy}
+                            r="22"
+                            fill="rgba(74, 222, 128, 0.28)"
+                            stroke="rgba(74, 222, 128, 0.95)"
+                            strokeWidth="2"
+                          />
+                          <text
+                            x={u.x}
+                            y={uy + 4}
+                            textAnchor="middle"
+                            fill="#DCFCE7"
+                            fontSize="10"
+                            fontFamily="JetBrains Mono, monospace"
+                            fontWeight="700"
+                          >
+                            TRPY
+                          </text>
+                        </g>
+                      );
+                    })}
+
+                    {/* 4v4 MW4 Squad Tokens */}
+                    {operators.map((op) => {
+                      const isSelected = op.id === selectedOpId;
+                      const oy = toDisplayY(op.y);
+                      return (
+                        <g
+                          key={op.id}
+                          onClick={(ev) => {
+                            ev.stopPropagation();
+                            setSelectedOpId(op.id);
+                            setTool('move');
+                          }}
+                          className="cursor-pointer"
+                        >
+                          <path
+                            d={computeConePath(op.x, oy, op.aimDeg, 150, 24)}
+                            fill={
+                              isSelected
+                                ? 'rgba(214, 180, 119, 0.32)'
+                                : 'rgba(214, 180, 119, 0.18)'
+                            }
+                          />
+                          <circle
+                            cx={op.x}
+                            cy={oy}
+                            r={isSelected ? '23' : '19'}
+                            fill={isSelected ? '#D6B477' : 'rgba(11, 13, 18, 0.92)'}
+                            stroke={isSelected ? '#FFFFFF' : '#D6B477'}
+                            strokeWidth="2.5"
+                          />
+                          <text
+                            x={op.x}
+                            y={oy + 4}
+                            textAnchor="middle"
+                            fill={isSelected ? '#0B0D12' : '#F5F5F5'}
+                            fontSize="12"
+                            fontFamily="JetBrains Mono, monospace"
+                            fontWeight="700"
+                          >
+                            {op.code}
+                          </text>
+                          <rect
+                            x={op.x - 58}
+                            y={oy + 26}
+                            width="116"
+                            height="18"
+                            rx="4"
+                            fill="rgba(11, 13, 18, 0.85)"
+                          />
+                          <text
+                            x={op.x}
+                            y={oy + 38}
+                            textAnchor="middle"
+                            fill="#F5F5F5"
+                            fontSize="11"
+                            fontFamily="DM Sans, sans-serif"
+                            fontWeight="600"
+                          >
+                            {op.role}
+                          </text>
+                        </g>
+                      );
+                    })}
+                  </g>
+                )}
               </svg>
             </div>
 

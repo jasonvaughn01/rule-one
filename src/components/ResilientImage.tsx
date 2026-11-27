@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Trophy } from 'lucide-react';
 
 interface ResilientImageProps {
@@ -6,6 +6,8 @@ interface ResilientImageProps {
   alt: string;
   className?: string;
   fallbackLabel?: string;
+  fit?: 'cover' | 'contain';
+  priority?: boolean;
 }
 
 export function ResilientImage({
@@ -13,8 +15,14 @@ export function ResilientImage({
   alt,
   className = '',
   fallbackLabel,
+  fit = 'cover',
+  priority = false,
 }: ResilientImageProps) {
   const [failed, setFailed] = useState(false);
+
+  useEffect(() => {
+    setFailed(false);
+  }, [src]);
 
   if (failed || !src) {
     return (
@@ -35,9 +43,11 @@ export function ResilientImage({
     <img
       src={src}
       alt={alt}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
       referrerPolicy="no-referrer"
       onError={() => setFailed(true)}
-      className={className}
+      className={`${fit === 'contain' ? 'object-contain p-4 bg-[#0D0F14]' : 'object-cover'} ${className}`}
     />
   );
 }

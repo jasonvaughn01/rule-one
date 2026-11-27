@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Allow: /games/modern-warfare-4
+Allow: /games/modern-warfare-4/maps/
+Allow: /games/modern-warfare-4/builds/
+Allow: /games/modern-warfare-4/patches/
+Allow: /games/modern-warfare-4/ranked
+Allow: /clans/
+Allow: /players/
+Disallow: /ops
+Disallow: /drafts/
+Disallow: /private/
+
+Sitemap: https://ais-pre-j45dd532fkrwd3ul2fby65-730941539525.us-west2.run.app/sitemap.xml
