@@ -1,0 +1,327 @@
+{
+  "entities": {
+    "ClubWorkspace": {
+      "title": "ClubWorkspace",
+      "description": "Shared Rule One Modern Warfare 4 CDL workspace holding club treasury, S&D record, active rig upgrades, and bounded founder/co-founder access lists.",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64,
+          "description": "Workspace display name."
+        },
+        "ownerUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Firebase Auth UID of the primary founder."
+        },
+        "ownerEmail": {
+          "type": "string",
+          "format": "email",
+          "minLength": 5,
+          "maxLength": 120,
+          "description": "Verified lowercase email of the primary founder."
+        },
+        "cofounderEmails": {
+          "type": "array",
+          "description": "Bounded list (max 15) of verified lowercase emails granted full Co-Founder/Admin access."
+        },
+        "treasury": {
+          "type": "number",
+          "description": "Available liquid scrim treasury in USD."
+        },
+        "offshoreReserve": {
+          "type": "number",
+          "description": "Banked reserve balance in USD."
+        },
+        "wins": {
+          "type": "number",
+          "description": "Total MW4 CDL S&D wins."
+        },
+        "losses": {
+          "type": "number",
+          "description": "Total MW4 CDL S&D losses."
+        },
+        "streak": {
+          "type": "number",
+          "description": "Current S&D win streak."
+        },
+        "bestStreak": {
+          "type": "number",
+          "description": "Best recorded S&D win streak."
+        },
+        "activeLoadoutId": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Active MW4 CDL v1.0 loadout preset identifier."
+        },
+        "ownedRigIds": {
+          "type": "array",
+          "description": "Bounded list (max 10) of installed Suite 74A hardware rig IDs."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server last-updated timestamp."
+        }
+      },
+      "required": [
+        "name",
+        "ownerUid",
+        "ownerEmail",
+        "cofounderEmails",
+        "treasury",
+        "offshoreReserve",
+        "wins",
+        "losses",
+        "streak",
+        "bestStreak",
+        "activeLoadoutId",
+        "ownedRigIds",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "CoFounderMember": {
+      "title": "CoFounderMember",
+      "description": "Authorized Co-Founder or Tactical Admin record inside the Rule One MW4 workspace.",
+      "type": "object",
+      "properties": {
+        "clubId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Parent club workspace ID."
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "minLength": 5,
+          "maxLength": 120,
+          "description": "Verified lowercase Google email address of the co-founder."
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Display name or gamer tag of the co-founder."
+        },
+        "role": {
+          "type": "string",
+          "enum": ["cofounder", "admin"],
+          "description": "Assigned administrative role."
+        },
+        "addedByUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "UID of the founder or co-founder who granted access."
+        },
+        "addedByEmail": {
+          "type": "string",
+          "format": "email",
+          "minLength": 5,
+          "maxLength": 120,
+          "description": "Email of the founder or co-founder who granted access."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when access was granted."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when record was last modified."
+        }
+      },
+      "required": [
+        "clubId",
+        "email",
+        "displayName",
+        "role",
+        "addedByUid",
+        "addedByEmail",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "SndPlaybook": {
+      "title": "SndPlaybook",
+      "description": "Saved Modern Warfare 4 CDL Search & Destroy tactical formation shared between Founder and Co-Founders.",
+      "type": "object",
+      "properties": {
+        "clubId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Parent club workspace ID."
+        },
+        "mapId": {
+          "type": "string",
+          "enum": ["coal", "lotus", "munition", "reactor_u92", "rooftops", "silkworm"],
+          "description": "Official MW4 CDL v1.0 S&D map ID."
+        },
+        "side": {
+          "type": "string",
+          "enum": ["offense", "defense"],
+          "description": "Round side."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Playbook title."
+        },
+        "createdByUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "UID of the admin who saved the playbook."
+        },
+        "createdByEmail": {
+          "type": "string",
+          "format": "email",
+          "minLength": 5,
+          "maxLength": 120,
+          "description": "Email of the admin who saved the playbook."
+        },
+        "operators": {
+          "type": "array",
+          "description": "Bounded 4-operator squad positions (max 4)."
+        },
+        "utilities": {
+          "type": "array",
+          "description": "Bounded CDL legal utility placements (max 20)."
+        },
+        "routes": {
+          "type": "array",
+          "description": "Bounded push/pinch route arrows (max 20)."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server update timestamp."
+        }
+      },
+      "required": [
+        "clubId",
+        "mapId",
+        "side",
+        "name",
+        "createdByUid",
+        "createdByEmail",
+        "operators",
+        "utilities",
+        "routes",
+        "createdAt",
+        "updatedAt"
+      ]
+    },
+    "LedgerRecord": {
+      "title": "LedgerRecord",
+      "description": "Shared MW4 S&D scrim settlement, booking, or treasury wire record.",
+      "type": "object",
+      "properties": {
+        "clubId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "Parent club workspace ID."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "match_win",
+            "match_loss",
+            "scrim_booking",
+            "rig_purchase",
+            "treasury_wire",
+            "treasury_withdraw"
+          ],
+          "description": "Ledger transaction category."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 120,
+          "description": "Headline of the transaction."
+        },
+        "subtitle": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160,
+          "description": "Details of the transaction."
+        },
+        "amount": {
+          "type": "number",
+          "description": "Signed USD settlement delta."
+        },
+        "scoreline": {
+          "type": "string",
+          "maxLength": 24,
+          "description": "Optional S&D map scoreline."
+        },
+        "createdByUid": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128,
+          "pattern": "^[a-zA-Z0-9_\\-]+$",
+          "description": "UID of the admin who created this ledger entry."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server creation timestamp."
+        }
+      },
+      "required": [
+        "clubId",
+        "type",
+        "title",
+        "subtitle",
+        "amount",
+        "createdByUid",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/clubs/{clubId}": {
+      "schema": { "$ref": "#/entities/ClubWorkspace" },
+      "description": "Primary Rule One MW4 club workspace document (canonical doc ID: rule_one) holding treasury, stats, and co-founder access allowlist."
+    },
+    "/clubs/{clubId}/cofounders/{cofounderId}": {
+      "schema": { "$ref": "#/entities/CoFounderMember" },
+      "description": "Authorized Co-Founder and Tactical Admin member records for the club."
+    },
+    "/clubs/{clubId}/playbooks/{playbookId}": {
+      "schema": { "$ref": "#/entities/SndPlaybook" },
+      "description": "Shared Modern Warfare 4 CDL Search & Destroy custom playbooks."
+    },
+    "/clubs/{clubId}/ledger/{entryId}": {
+      "schema": { "$ref": "#/entities/LedgerRecord" },
+      "description": "Shared Modern Warfare 4 S&D scrim & treasury ledger entries."
+    }
+  }
+}

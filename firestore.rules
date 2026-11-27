@@ -1,0 +1,290 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Core Helpers
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn()
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true;
+    }
+
+    function userEmail() {
+      return request.auth.token.email.lower();
+    }
+
+    // Primary Founder (always retains full recovery access)
+    function isPrimaryFounder() {
+      return isVerifiedUser() && userEmail() == 'jason.vaughn202@gmail.com';
+    }
+
+    // Bootstrapped Co-Founder allowed to initialize workspace before first create
+    function isInitialCoFounder() {
+      return isVerifiedUser() && userEmail() == 'fpsxfubarxgsg@gmail.com';
+    }
+
+    // Master Gate lookup on parent club workspace
+    function isClubAdmin(clubId) {
+      return isVerifiedUser() && (
+        isPrimaryFounder() ||
+        (
+          exists(/databases/$(database)/documents/clubs/$(clubId)) &&
+          (
+            get(/databases/$(database)/documents/clubs/$(clubId)).data.ownerEmail == userEmail() ||
+            userEmail() in get(/databases/$(database)/documents/clubs/$(clubId)).data.cofounderEmails
+          )
+        )
+      );
+    }
+
+    function isExistingClubDocAdmin() {
+      return isVerifiedUser() && (
+        isPrimaryFounder() ||
+        (resource == null && isInitialCoFounder()) ||
+        (resource != null && (
+          existing().ownerEmail == userEmail() ||
+          userEmail() in existing().cofounderEmails
+        ))
+      );
+    }
+
+    // Validation Blueprints (Strict Keys, Types, Boundaries & Array Caps)
+    function isValidClubWorkspace(data) {
+      return data.keys().hasAll([
+          'name', 'ownerUid', 'ownerEmail', 'cofounderEmails',
+          'treasury', 'offshoreReserve', 'wins', 'losses',
+          'streak', 'bestStreak', 'activeLoadoutId', 'ownedRigIds',
+          'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'name', 'ownerUid', 'ownerEmail', 'cofounderEmails',
+          'treasury', 'offshoreReserve', 'wins', 'losses',
+          'streak', 'bestStreak', 'activeLoadoutId', 'ownedRigIds',
+          'createdAt', 'updatedAt'
+        ])
+        && data.name is string && data.name.size() >= 2 && data.name.size() <= 64
+        && isValidId(data.ownerUid)
+        && data.ownerEmail is string && data.ownerEmail.size() >= 5 && data.ownerEmail.size() <= 120
+        && data.cofounderEmails is list && data.cofounderEmails.size() <= 15
+        && (data.cofounderEmails.size() == 0 || (data.cofounderEmails[0] is string && data.cofounderEmails[0].size() <= 120))
+        && data.treasury is number && data.treasury >= 0 && data.treasury <= 1000000000
+        && data.offshoreReserve is number && data.offshoreReserve >= 0 && data.offshoreReserve <= 1000000000
+        && data.wins is number && data.wins >= 0 && data.wins <= 100000
+        && data.losses is number && data.losses >= 0 && data.losses <= 100000
+        && data.streak is number && data.streak >= 0 && data.streak <= 10000
+        && data.bestStreak is number && data.bestStreak >= 0 && data.bestStreak <= 10000
+        && isValidId(data.activeLoadoutId) && data.activeLoadoutId.size() <= 64
+        && data.ownedRigIds is list && data.ownedRigIds.size() <= 10
+        && (data.ownedRigIds.size() == 0 || (data.ownedRigIds[0] is string && data.ownedRigIds[0].size() <= 64))
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidCoFounderMember(data, clubId) {
+      return data.keys().hasAll([
+          'clubId', 'email', 'displayName', 'role',
+          'addedByUid', 'addedByEmail', 'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'clubId', 'email', 'displayName', 'role',
+          'addedByUid', 'addedByEmail', 'createdAt', 'updatedAt'
+        ])
+        && data.clubId == clubId && isValidId(data.clubId) && data.clubId.size() <= 64
+        && data.email is string && data.email.size() >= 5 && data.email.size() <= 120
+        && data.displayName is string && data.displayName.size() >= 1 && data.displayName.size() <= 80
+        && data.role in ['cofounder', 'admin']
+        && isValidId(data.addedByUid)
+        && data.addedByEmail is string && data.addedByEmail.size() >= 5 && data.addedByEmail.size() <= 120
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidSndPlaybook(data, clubId) {
+      return data.keys().hasAll([
+          'clubId', 'mapId', 'side', 'name',
+          'createdByUid', 'createdByEmail',
+          'operators', 'utilities', 'routes',
+          'createdAt', 'updatedAt'
+        ])
+        && data.keys().hasOnly([
+          'clubId', 'mapId', 'side', 'name',
+          'createdByUid', 'createdByEmail',
+          'operators', 'utilities', 'routes',
+          'createdAt', 'updatedAt'
+        ])
+        && data.clubId == clubId && isValidId(data.clubId) && data.clubId.size() <= 64
+        && data.mapId in ['coal', 'lotus', 'munition', 'reactor_u92', 'rooftops', 'silkworm']
+        && data.side in ['offense', 'defense']
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 80
+        && isValidId(data.createdByUid)
+        && data.createdByEmail is string && data.createdByEmail.size() >= 5 && data.createdByEmail.size() <= 120
+        && data.operators is list && data.operators.size() <= 4
+        && (data.operators.size() == 0 || data.operators[0] is map)
+        && data.utilities is list && data.utilities.size() <= 20
+        && (data.utilities.size() == 0 || data.utilities[0] is map)
+        && data.routes is list && data.routes.size() <= 20
+        && (data.routes.size() == 0 || data.routes[0] is map)
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidLedgerRecord(data, clubId) {
+      return data.keys().hasAll([
+          'clubId', 'type', 'title', 'subtitle',
+          'amount', 'createdByUid', 'createdAt'
+        ])
+        && data.keys().hasOnly([
+          'clubId', 'type', 'title', 'subtitle',
+          'amount', 'scoreline', 'createdByUid', 'createdAt'
+        ])
+        && data.clubId == clubId && isValidId(data.clubId) && data.clubId.size() <= 64
+        && data.type in ['match_win', 'match_loss', 'scrim_booking', 'rig_purchase', 'treasury_wire', 'treasury_withdraw']
+        && data.title is string && data.title.size() >= 1 && data.title.size() <= 120
+        && data.subtitle is string && data.subtitle.size() >= 1 && data.subtitle.size() <= 160
+        && data.amount is number && data.amount >= -100000000 && data.amount <= 100000000
+        && (!('scoreline' in data) || (data.scoreline is string && data.scoreline.size() <= 24))
+        && isValidId(data.createdByUid)
+        && data.createdAt is timestamp;
+    }
+
+    // Club Workspace Collection
+    match /clubs/{clubId} {
+      allow get: if isValidId(clubId) && isExistingClubDocAdmin();
+      allow list: if false;
+
+      allow create: if isVerifiedUser()
+        && isValidId(clubId)
+        && clubId == 'rule_one'
+        && isValidClubWorkspace(incoming())
+        && (isPrimaryFounder() || isInitialCoFounder())
+        && incoming().ownerUid == request.auth.uid
+        && incoming().ownerEmail == 'jason.vaughn202@gmail.com'
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isVerifiedUser()
+        && isValidId(clubId)
+        && isValidClubWorkspace(incoming())
+        && incoming().ownerUid == existing().ownerUid
+        && incoming().ownerEmail == existing().ownerEmail
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && isExistingClubDocAdmin()
+        && (
+          // Action 1: Manage Co-Founders list
+          incoming().diff(existing()).affectedKeys().hasOnly(['cofounderEmails', 'updatedAt']) ||
+          // Action 2: Update Treasury / Record / Loadout / Rig
+          incoming().diff(existing()).affectedKeys().hasOnly([
+            'treasury', 'offshoreReserve', 'wins', 'losses',
+            'streak', 'bestStreak', 'activeLoadoutId', 'ownedRigIds', 'updatedAt'
+          ])
+        );
+
+      allow delete: if false;
+
+      // Co-Founder & Admin Roster Subcollection
+      match /cofounders/{cofounderId} {
+        allow get: if isValidId(clubId) && isValidId(cofounderId) && isClubAdmin(clubId);
+        allow list: if isValidId(clubId) && isClubAdmin(clubId) && resource.data.clubId == clubId;
+
+        allow create: if isVerifiedUser()
+          && isValidId(clubId)
+          && isValidId(cofounderId)
+          && isValidCoFounderMember(incoming(), clubId)
+          && incoming().addedByUid == request.auth.uid
+          && incoming().addedByEmail == userEmail()
+          && incoming().createdAt == request.time
+          && incoming().updatedAt == request.time
+          && isClubAdmin(clubId);
+
+        allow update: if isVerifiedUser()
+          && isValidId(clubId)
+          && isValidId(cofounderId)
+          && isValidCoFounderMember(incoming(), clubId)
+          && incoming().clubId == existing().clubId
+          && incoming().email == existing().email
+          && incoming().addedByUid == existing().addedByUid
+          && incoming().addedByEmail == existing().addedByEmail
+          && incoming().createdAt == existing().createdAt
+          && incoming().updatedAt == request.time
+          && isClubAdmin(clubId)
+          && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'role', 'updatedAt']);
+
+        allow delete: if isValidId(clubId)
+          && isValidId(cofounderId)
+          && existing().email != 'jason.vaughn202@gmail.com'
+          && isClubAdmin(clubId);
+      }
+
+      // Shared MW4 CDL S&D Playbooks Subcollection
+      match /playbooks/{playbookId} {
+        allow get: if isValidId(clubId) && isValidId(playbookId) && isClubAdmin(clubId);
+        allow list: if isValidId(clubId) && isClubAdmin(clubId) && resource.data.clubId == clubId;
+
+        allow create: if isVerifiedUser()
+          && isValidId(clubId)
+          && isValidId(playbookId)
+          && isValidSndPlaybook(incoming(), clubId)
+          && incoming().createdByUid == request.auth.uid
+          && incoming().createdByEmail == userEmail()
+          && incoming().createdAt == request.time
+          && incoming().updatedAt == request.time
+          && isClubAdmin(clubId);
+
+        allow update: if isVerifiedUser()
+          && isValidId(clubId)
+          && isValidId(playbookId)
+          && isValidSndPlaybook(incoming(), clubId)
+          && incoming().clubId == existing().clubId
+          && incoming().createdByUid == existing().createdByUid
+          && incoming().createdByEmail == existing().createdByEmail
+          && incoming().createdAt == existing().createdAt
+          && incoming().updatedAt == request.time
+          && isClubAdmin(clubId)
+          && incoming().diff(existing()).affectedKeys().hasOnly([
+            'name', 'operators', 'utilities', 'routes', 'updatedAt'
+          ]);
+
+        allow delete: if isValidId(clubId) && isValidId(playbookId) && isClubAdmin(clubId);
+      }
+
+      // Shared MW4 Scrim & Treasury Ledger Subcollection
+      match /ledger/{entryId} {
+        allow get: if isValidId(clubId) && isValidId(entryId) && isClubAdmin(clubId);
+        allow list: if isValidId(clubId) && isClubAdmin(clubId) && resource.data.clubId == clubId;
+
+        allow create: if isVerifiedUser()
+          && isValidId(clubId)
+          && isValidId(entryId)
+          && isValidLedgerRecord(incoming(), clubId)
+          && incoming().createdByUid == request.auth.uid
+          && incoming().createdAt == request.time
+          && isClubAdmin(clubId);
+
+        allow update: if false;
+        allow delete: if isValidId(clubId) && isValidId(entryId) && isClubAdmin(clubId);
+      }
+    }
+  }
+}
